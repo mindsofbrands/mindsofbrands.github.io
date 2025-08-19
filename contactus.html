@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Minds Of Brands</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Get in touch with Minds Of Brands for SEO, Social Media Marketing, Lead Generation, and Branding solutions.">
+  <meta name="keywords" content="Digital Marketing, Contact, SEO, Social Media Marketing, Lead Generation, Branding, Minds Of Brands">
+  <meta name="author" content="Minds Of Brands">
+
+  <!-- Styling -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { font-size: 24px; }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: #f4b400; }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    h2 { text-align: center; margin-bottom: 30px; font-size: 32px; color: #333; }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    input:focus, textarea:focus {
+      border-color: #f4b400;
+      outline: none;
+    }
+    button {
+      background-color: #f4b400;
+      color: #000;
+      padding: 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover { background-color: #e69e00; }
+
+    .contact-details {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-details p { font-size: 16px; }
+    .contact-details a { color: #f4b400; text-decoration: none; }
+    .contact-details a:hover { text-decoration: underline; }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Minds Of Brands</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTACT FORM -->
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-details">
+      <h3>Our Contact Details</h3>
+      <p>📍 Address: MindsofBrands, Bhilwara, Rajasthan, India</p>
+      <p>📞 Phone: +91 12345 67890</p>
+      <p>✉️ Email: <a href="mailto:info@mindsofbrands.com">info@mindsofbrands.com</a></p>
+      <p>🌐 Website: <a href="https://mindsofbrands.com" target="_blank">mindsofbrands.com</a></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
 
