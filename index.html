@@ -4,28 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minds Of Brands | Digital Marketing & Branding</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="Minds Of Brands helps businesses grow with SEO, Social Media Marketing, Lead Generation, and Branding solutions.">
   <meta name="keywords" content="Digital Marketing, SEO, Social Media Marketing, Lead Generation, Branding, Minds Of Brands">
   <meta name="author" content="Minds Of Brands">
-  
-  <!-- Open Graph for Social Sharing -->
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Minds Of Brands | Digital Marketing & Branding">
   <meta property="og:description" content="Boosting Brands in the digital territories with SEO, SMM, and Lead Generation.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourgithubusername.github.io/">
+  <meta property="og:url" content="https://mindsofbrands.com/">
   <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Minds+Of+Brands">
 
   <!-- Styling -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-  font-family: Arial, sans-serif; 
-  line-height: 1.6; 
-  color: #fff; /* text color white for contrast */ 
-  background-color: #000; /* black background */ 
-}
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      background-color: #000; /* Black background */
+    }
+
+    /* Header */
     header {
       background: #000;
       color: #fff;
@@ -33,57 +35,113 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    header h1 { font-size: 24px; }
+    header h1 {
+      font-size: 24px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #00f, #0ff); /* Gradient blue */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     nav ul { list-style: none; display: flex; }
     nav ul li { margin-left: 20px; }
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
-    nav ul li a:hover { color: #f4b400; }
+    nav ul li a:hover { color: #0ff; }
 
+    /* Hero Section */
     .hero {
-      background: url('https://via.placeholder.com/1600x600.png?text=Digital+Marketing+Made+Easy') no-repeat center center/cover;
+      background-color: #000; 
       color: white;
       text-align: center;
       padding: 120px 20px;
     }
-
-    /* Gradient Title */
     .hero h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
+      font-size: 56px;
       font-weight: bold;
-      background: linear-gradient(90deg, #f4b400, #ff6a00); /* Yellow to orange gradient */
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #00f, #0ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
-
-    .hero p { font-size: 20px; margin-bottom: 20px; }
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+      color: #39ff14; /* Neon green */
+    }
     .btn {
-      background: #f4b400;
-      color: #000;
-      padding: 12px 25px;
-      text-decoration: none;
+      background-color: #8000ff; /* Purple */
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
       font-size: 18px;
-      border-radius: 5px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
-    .btn:hover { background: #333; color: #fff; }
+    .btn:hover { transform: scale(1.1); }
 
-    .section { padding: 60px 20px; text-align: center; }
-    .section h2 { margin-bottom: 20px; font-size: 32px; }
+    /* Sections */
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #000;
+    }
+    .section h2 {
+      margin-bottom: 20px;
+      font-size: 36px;
+      background: linear-gradient(90deg, #00f, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section p { color: #fff; font-size: 18px; max-width: 900px; margin: 0 auto; }
 
+    /* Our Products */
+    .products {
+      background-color: #000;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .products h2 {
+      font-size: 36px;
+      background: linear-gradient(90deg, #00f, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .products p { color: #fff; font-size: 18px; max-width: 900px; margin: 0 auto 30px; }
+    .products .btn { margin-top: 15px; }
+
+    /* Footer */
     footer {
-      background: #111;
+      background: #000;
       color: #fff;
       text-align: center;
       padding: 20px;
-      margin-top: 30px;
     }
     footer p { font-size: 14px; }
+    footer a {
+      color: #0ff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 40px; }
+      .hero p { font-size: 18px; }
+      .section h2 { font-size: 30px; }
+      .products h2 { font-size: 30px; }
+    }
   </style>
 </head>
 <body>
@@ -106,7 +164,7 @@
   <section class="hero">
     <h2>Boosting Brands in the Digital Territories</h2>
     <p>SEO | Social Media | Lead Generation | Branding | CRM</p>
-    <a href="services.html" class="btn">Get Started</a>
+    <a href="contactus.html" class="btn">Contact Us</a>
   </section>
 
   <!-- ABOUT SECTION -->
@@ -116,14 +174,29 @@
   </section>
 
   <!-- SERVICES SECTION -->
-  <section class="section" style="background:#f9f9f9;">
+  <section class="section">
     <h2>Our Services</h2>
     <p>SEO | Social Media Marketing | Lead Generation | Email Marketing | Branding | CRM</p>
+    <p>Check out our Product Maina Application for more details.</p>
+  </section>
+
+  <!-- OUR PRODUCTS SECTION -->
+  <section class="products">
+    <h2>Our Products</h2>
+    <p>Maina is our upcoming application designed to help businesses manage digital marketing workflows efficiently. You can learn more or download the app in the future updates. For now, you can contact us to get early access.</p>
+    <a href="contactus.html" class="btn">Contact Us / Download App</a>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="product.html">Product</a> |
+      <a href="about.html">About Us</a> |
+      <a href="contactus.html">Contact</a>
+    </p>
   </footer>
 
 </body>
