@@ -4,17 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - Minds Of Brands</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="Get in touch with Minds Of Brands for SEO, Social Media Marketing, Lead Generation, and Branding solutions.">
   <meta name="keywords" content="Digital Marketing, Contact, SEO, Social Media Marketing, Lead Generation, Branding, Minds Of Brands">
   <meta name="author" content="Minds Of Brands">
 
-  <!-- Styling -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      background-color: #000; /* Black background */
+    }
 
+    /* Header */
     header {
       background: #000;
       color: #fff;
@@ -22,28 +27,46 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    header h1 { font-size: 24px; }
+    header h1 {
+      font-size: 24px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #00f, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     nav ul { list-style: none; display: flex; }
     nav ul li { margin-left: 20px; }
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
-    nav ul li a:hover { color: #f4b400; }
+    nav ul li a:hover { color: #0ff; }
 
+    /* Container */
     .container {
       max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      margin: 60px auto;
+      padding: 40px 20px;
+      background-color: #111; /* Dark container */
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.5);
       border-radius: 10px;
     }
 
-    h2 { text-align: center; margin-bottom: 30px; font-size: 32px; color: #333; }
-    
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 36px;
+      background: linear-gradient(90deg, #00f, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     form {
       display: flex;
       flex-direction: column;
@@ -51,25 +74,27 @@
     }
     input, textarea {
       padding: 12px;
-      border: 1px solid #ccc;
+      border: 1px solid #333;
       border-radius: 6px;
       font-size: 16px;
+      background-color: #000;
+      color: #fff;
     }
     input:focus, textarea:focus {
-      border-color: #f4b400;
+      border-color: #0ff;
       outline: none;
     }
     button {
-      background-color: #f4b400;
-      color: #000;
+      background-color: #8000ff; /* Purple */
+      color: #fff;
       padding: 15px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
-      transition: background-color 0.3s ease;
+      transition: transform 0.3s ease;
     }
-    button:hover { background-color: #e69e00; }
+    button:hover { transform: scale(1.05); }
 
     .contact-details {
       margin-top: 40px;
@@ -77,16 +102,37 @@
       flex-direction: column;
       gap: 10px;
     }
-    .contact-details p { font-size: 16px; }
-    .contact-details a { color: #f4b400; text-decoration: none; }
+    .contact-details h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #00f, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .contact-details p { font-size: 16px; color: #fff; }
+    .contact-details a { color: #0ff; text-decoration: none; }
     .contact-details a:hover { text-decoration: underline; }
 
+    /* Footer */
     footer {
-      background: #111;
+      background: #000;
       color: #fff;
       text-align: center;
       padding: 20px;
-      margin-top: 30px;
+      margin-top: 40px;
+    }
+    footer p { font-size: 14px; }
+    footer a {
+      color: #0ff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h2 { font-size: 28px; }
+      .contact-details h3 { font-size: 20px; }
     }
   </style>
 </head>
@@ -119,19 +165,25 @@
 
     <div class="contact-details">
       <h3>Our Contact Details</h3>
-      <p>📍 Locatios         : India & Canada</p>
-      <p>📞 Phone & Whats app: +91 6378789927</p>
-      <p>📞 Whats app        : +1 4169020823</p>
-      <p>✉️ Email            : <a href="mailto:garvagrawal0770@gmail.com">info@mindsofbrands.com</a></p>
-      <p>🌐 Website          : <a href="https://mindsofbrands.com" target="_blank">mindsofbrands.com</a></p>
+      <p>📍 Location: India & Canada</p>
+      <p>📞 Phone & WhatsApp: +91 6378789927</p>
+      <p>📞 WhatsApp: +1 4169020823</p>
+      <p>✉️ Email: <a href="mailto:garvagrawal0770@gmail.com">info@mindsofbrands.com</a></p>
+      <p>🌐 Website: <a href="https://mindsofbrands.com" target="_blank">mindsofbrands.com</a></p>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="product.html">Product</a> |
+      <a href="about.html">About Us</a> |
+      <a href="contact.html">Contact</a>
+    </p>
   </footer>
 
 </body>
 </html>
-
