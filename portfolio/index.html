@@ -1,127 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Minds of Brands</title>
-    <link rel="stylesheet" href="../style.css"> <!-- Using main site CSS -->
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            color: #333;
-        }
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: #f7f7f7;
-        }
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        .cta-btn {
-            background-color: #ff9900;
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .business-section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .business-section h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-        .business-section p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            line-height: 1.6em;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .business-section .visit-btn {
-            display: inline-block;
-            margin-bottom: 30px;
-            background-color: #0073e6;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2em;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Minds of Brands</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+        background-color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .portfolio-hero {
+        text-align: center;
+        padding: 80px 20px;
+        background-color: #111;
+    }
+    .portfolio-hero h1 {
+        font-size: 3em;
+        color: #0d6efd;
+        margin-bottom: 20px;
+    }
+    .portfolio-hero p {
+        font-size: 1.2em;
+        color: #ccc;
+        margin-bottom: 30px;
+    }
+    .cta-btn {
+        background-color: #6f42c1;
+        color: #fff;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .business-section {
+        max-width: 1100px;
+        margin: 60px auto;
+        padding: 0 20px;
+    }
+    .business-section h2 {
+        font-size: 2em;
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
+    .business-section p {
+        font-size: 1.1em;
+        line-height: 1.6em;
+        margin-bottom: 25px;
+        color: #ccc;
+    }
+
+    .visit-btn {
+        display: inline-block;
+        background-color: #0d6efd;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-bottom: 30px;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+    .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+</style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Our Portfolio of Businesses</h1>
-        <p>Showcasing our work across diverse industries and helping businesses grow digitally.</p>
-        <a href="../contact.html" class="cta-btn">Contact Us</a>
-    </section>
+<!-- Hero Section -->
+<section class="portfolio-hero">
+    <h1>Our Portfolio</h1>
+    <p>Showcasing our work across industries and helping businesses grow digitally</p>
+    <a href="../contact.html" class="cta-btn">Contact Us</a>
+</section>
 
-    <!-- Business Section 1: IT / Software -->
-    <section class="business-section">
-        <h2>💻 TechNova Solutions</h2>
-        <p>TechNova Solutions is a leading IT and software development company, delivering innovative digital solutions for businesses of all sizes. From custom software applications to web and mobile development, TechNova ensures seamless technology integration for clients. Their portfolio highlights projects in automation, cloud solutions, and business analytics. Through strategic digital marketing, TechNova boosts client engagement and drives measurable results. Our collaboration focused on designing responsive websites, enhancing UX/UI, and implementing lead generation campaigns. Each project reflects a commitment to quality, innovation, and growth. The results include increased online visibility, higher conversion rates, and stronger client trust.</p>
-        <a href="https://technova.com" target="_blank" class="visit-btn">Visit Website</a>
+<!-- Business 1: TechNova Solutions -->
+<section class="business-section">
+    <h2>TechNova Solutions</h2>
+    <p>TechNova Solutions is a leading IT and software development company, delivering innovative digital solutions for businesses of all sizes. From custom software applications to web and mobile development, TechNova ensures seamless technology integration for clients. Their portfolio highlights projects in automation, cloud solutions, and business analytics. Through strategic digital marketing, TechNova boosts client engagement and drives measurable results. Our collaboration focused on designing responsive websites, enhancing UX/UI, and implementing lead generation campaigns. Each project reflects a commitment to quality, innovation, and growth. The results include increased online visibility, higher conversion rates, and stronger client trust.</p>
+    <a href="https://technova.com" class="visit-btn" target="_blank">Visit Website</a>
 
-        <div class="gallery">
-            <img src="https://via.placeholder.com/400x300?text=TechNova+1" alt="TechNova Image 1">
-            <img src="https://via.placeholder.com/400x300?text=TechNova+2" alt="TechNova Image 2">
-            <img src="https://via.placeholder.com/400x300?text=TechNova+3" alt="TechNova Image 3">
-            <img src="https://via.placeholder.com/400x300?text=TechNova+4" alt="TechNova Image 4">
-        </div>
-    </section>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/400x300?text=TechNova+1" alt="TechNova Image 1">
+        <img src="https://via.placeholder.com/400x300?text=TechNova+2" alt="TechNova Image 2">
+        <img src="https://via.placeholder.com/400x300?text=TechNova+3" alt="TechNova Image 3">
+        <img src="https://via.placeholder.com/400x300?text=TechNova+4" alt="TechNova Image 4">
+    </div>
+</section>
 
-    <!-- Business Section 2: Law / Professional -->
-    <section class="business-section" style="background:#f7f7f7;">
-        <h2>⚖️ Lexify Legal Group</h2>
-        <p>Lexify Legal Group provides expert legal services to individuals and businesses, specializing in corporate law, litigation, and advisory services. Their approach combines professionalism with client-focused strategies to ensure optimal outcomes. Our portfolio work showcases website design, brand positioning, and digital marketing campaigns aimed at increasing client inquiries and building credibility. We developed a professional, modern online presence that communicates trust, expertise, and reliability. Through content marketing, SEO, and social media strategies, Lexify effectively connects with potential clients. The collaboration demonstrates how thoughtful digital marketing can elevate a professional service brand. Results include stronger online reputation, higher engagement, and enhanced brand authority.</p>
-        <a href="https://lexify.com" target="_blank" class="visit-btn">Visit Website</a>
+<!-- Business 2: Lexify Legal Group -->
+<section class="business-section">
+    <h2>Lexify Legal Group</h2>
+    <p>Lexify Legal Group provides expert legal services to individuals and businesses, specializing in corporate law, litigation, and advisory services. Their approach combines professionalism with client-focused strategies to ensure optimal outcomes. Our portfolio work showcases website design, brand positioning, and digital marketing campaigns aimed at increasing client inquiries and building credibility. We developed a professional, modern online presence that communicates trust, expertise, and reliability. Through content marketing, SEO, and social media strategies, Lexify effectively connects with potential clients. The collaboration demonstrates how thoughtful digital marketing can elevate a professional service brand. Results include stronger online reputation, higher engagement, and enhanced brand authority.</p>
+    <a href="https://lexify.com" class="visit-btn" target="_blank">Visit Website</a>
 
-        <div class="gallery">
-            <img src="https://via.placeholder.com/400x300?text=Lexify+1" alt="Lexify Image 1">
-            <img src="https://via.placeholder.com/400x300?text=Lexify+2" alt="Lexify Image 2">
-            <img src="https://via.placeholder.com/400x300?text=Lexify+3" alt="Lexify Image 3">
-            <img src="https://via.placeholder.com/400x300?text=Lexify+4" alt="Lexify Image 4">
-        </div>
-    </section>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/400x300?text=Lexify+1" alt="Lexify Image 1">
+        <img src="https://via.placeholder.com/400x300?text=Lexify+2" alt="Lexify Image 2">
+        <img src="https://via.placeholder.com/400x300?text=Lexify+3" alt="Lexify Image 3">
+        <img src="https://via.placeholder.com/400x300?text=Lexify+4" alt="Lexify Image 4">
+    </div>
+</section>
 
-    <!-- Business Section 3: Food & Retail -->
-    <section class="business-section">
-        <h2>🍬 SweetCrave Foods</h2>
-        <p>SweetCrave Foods is a vibrant sweet shop and quick-service food outlet, offering a wide range of traditional sweets, snacks, and modern treats. Their goal is to delight customers with high-quality products and an enjoyable culinary experience. Our portfolio showcases brand development, social media campaigns, and promotional strategies that increase footfall and online orders. We highlighted their product variety through engaging visuals, interactive menus, and content marketing. Digital marketing efforts include Instagram and Facebook campaigns, seasonal promotions, and influencer collaborations. Each project reflects creativity, customer engagement, and business growth. The results include stronger brand recognition, increased sales, and loyal customer engagement.</p>
-        <a href="https://sweetcrave.com" target="_blank" class="visit-btn">Visit Website</a>
+<!-- Business 3: SweetCrave Foods -->
+<section class="business-section">
+    <h2>SweetCrave Foods</h2>
+    <p>SweetCrave Foods is a vibrant sweet shop and quick-service food outlet, offering a wide range of traditional sweets, snacks, and modern treats. Their goal is to delight customers with high-quality products and an enjoyable culinary experience. Our portfolio showcases brand development, social media campaigns, and promotional strategies that increase footfall and online orders. We highlighted their product variety through engaging visuals, interactive menus, and content marketing. Digital marketing efforts include Instagram and Facebook campaigns, seasonal promotions, and influencer collaborations. Each project reflects creativity, customer engagement, and business growth. The results include stronger brand recognition, increased sales, and loyal customer engagement.</p>
+    <a href="https://sweetcrave.com" class="visit-btn" target="_blank">Visit Website</a>
 
-        <div class="gallery">
-            <img src="https://via.placeholder.com/400x300?text=SweetCrave+1" alt="SweetCrave Image 1">
-            <img src="https://via.placeholder.com/400x300?text=SweetCrave+2" alt="SweetCrave Image 2">
-            <img src="https://via.placeholder.com/400x300?text=SweetCrave+3" alt="SweetCrave Image 3">
-            <img src="https://via.placeholder.com/400x300?text=SweetCrave+4" alt="SweetCrave Image 4">
-        </div>
-    </section>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/400x300?text=SweetCrave+1" alt="SweetCrave Image 1">
+        <img src="https://via.placeholder.com/400x300?text=SweetCrave+2" alt="SweetCrave Image 2">
+        <img src="https://via.placeholder.com/400x300?text=SweetCrave+3" alt="SweetCrave Image 3">
+        <img src="https://via.placeholder.com/400x300?text=SweetCrave+4" alt="SweetCrave Image 4">
+    </div>
+</section>
 
 </body>
 </html>
