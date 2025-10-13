@@ -1,218 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BeatXP Smartwatch Sales Growth | Minds Of Brands Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BeatXP Smartwatch — Case Study | Minds Of Brands</title>
+  <meta name="description" content="BeatXP Smartwatch case study — Growth strategy, ads, ASO, influencer marketing, and results from a 5-month campaign by Minds Of Brands." />
+  <meta property="og:title" content="BeatXP Smartwatch — Case Study | Minds Of Brands" />
+  <meta property="og:description" content="How Minds Of Brands increased BeatXP smartwatch sales by 47% in 5 months using targeted performance marketing, influencer campaigns, and CRO." />
+  <meta property="og:url" content="https://mindsofbrands.com/beatxp-case-study.html" />
+  <meta property="og:image" content="https://mindsofbrands.com/assets/images/beatxp-og.png" />
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="How Minds Of Brands helped BeatXP boost smartwatch sales through strategic digital marketing and SEO-driven campaigns." />
-  <meta name="keywords" content="BeatXP, Smartwatch Marketing, SEO, Digital Marketing, Minds Of Brands, Brand Growth" />
-  <meta name="author" content="Minds Of Brands" />
+  <!-- Favicon (update the path/name if needed) -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="BeatXP Smartwatch Sales Growth | Minds Of Brands Portfolio" />
-  <meta property="og:description" content="Boosted BeatXP smartwatch sales by 64% in 3 months through data-driven campaigns and SEO strategy." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mindsofbrands.com/portfolio/beatxp/" />
-  <meta property="og:image" content="https://mindsofbrands.com/asset/images/beatxp-preview.jpg" />
-
-  <!-- Styling -->
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #fff;
-      background-color: #000;
+    :root{
+      --bg:#000;
+      --muted:#bdbdbd;
+      --accent1: #00f;
+      --accent2: #0ff;
+      --card-bg: #0a0a0a;
+      --accent-cta: #8000ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:#fff;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
     /* Header */
-    header {
-      background: #000;
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    header{
+      position:sticky;top:0;z-index:100;
+      background:linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.85));
+      backdrop-filter: blur(6px);
+      padding:14px 32px;display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,0.03)
     }
-    header h1 a {
-      font-size: 24px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-    }
-    nav ul { list-style: none; display: flex; }
-    nav ul li { margin-left: 20px; }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover { color: #0ff; }
+    header .brand{font-size:20px;font-weight:700;text-decoration:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    nav ul{display:flex;list-style:none;gap:18px;align-items:center}
+    nav a{color:#fff;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent2)}
+
+    /* Page container */
+    .container{max-width:1100px;margin:40px auto;padding:0 20px}
 
     /* Hero */
-    .hero {
-      background-color: #000;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
+    .hero{
+      text-align:left;padding:44px 24px;border-radius:12px;
+      background:linear-gradient(180deg, rgba(10,10,10,0.6), rgba(10,10,10,0.4));
+      display:flex;gap:28px;align-items:center;
     }
-    .hero h2 {
-      font-size: 52px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 22px;
-      margin-bottom: 30px;
-      color: #39ff14;
-    }
+    .hero-left{flex:1}
+    .hero h1{font-size:36px;margin-bottom:8px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p.lead{color:var(--muted);font-size:16px;margin-bottom:12px}
+    .meta{display:flex;gap:12px;color:var(--muted);font-size:14px;margin-bottom:10px}
+    .hero-cta{margin-top:8px}
+    .btn{background:var(--accent-cta);color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06)}
 
-    /* Section */
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .section h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .section p {
-      font-size: 18px;
-      color: #fff;
-      max-width: 900px;
-      margin: 0 auto 20px;
-    }
-    .section ul {
-      list-style: none;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .section ul li {
-      font-size: 18px;
-      margin: 10px 0;
-      color: #ccc;
-    }
+    /* Grid layout for content */
+    .grid{display:grid;grid-template-columns: 1fr 360px;gap:28px;margin-top:28px}
+    @media (max-width:980px){ .grid{grid-template-columns:1fr} .hero{flex-direction:column} .hero h1{font-size:28px} }
 
-    .btn {
-      background-color: #8000ff;
-      color: #fff;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: transform 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    .btn:hover { transform: scale(1.1); }
+    /* Article */
+    article{background:transparent;padding:18px;border-radius:10px}
+    h2{font-size:22px;margin-bottom:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    p{color:#e8e8e8;margin-bottom:14px}
+    .section-block{background:var(--card-bg);padding:18px;border-radius:10px;margin-bottom:18px;border:1px solid rgba(255,255,255,0.02)}
 
-    /* Footer */
-    footer {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-    footer p { font-size: 14px; }
-    footer a {
-      color: #0ff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover { text-decoration: underline; }
+    /* Metrics cards */
+    .metrics{display:flex;gap:12px;flex-wrap:wrap}
+    .metric{flex:1 1 160px;background:linear-gradient(180deg,#0f0f0f,#070707);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .metric .num{font-size:20px;font-weight:800;margin-bottom:6px}
+    .metric .label{font-size:13px;color:var(--muted)}
 
-    @media (max-width: 768px) {
-      .hero h2 { font-size: 40px; }
-      .section h2 { font-size: 30px; }
-      nav ul { flex-direction: column; align-items: center; }
-      nav ul li { margin: 10px 0; }
-    }
+    /* Timeline */
+    .timeline{list-style:none;padding-left:16px;border-left:2px dashed rgba(255,255,255,0.03);margin-left:8px}
+    .timeline li{position:relative;padding:12px 12px 12px 22px;margin-bottom:6px}
+    .timeline li:before{content:'';position:absolute;left:-11px;top:18px;width:12px;height:12px;border-radius:50%;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 0 8px rgba(0,255,255,0.06)}
+    .timeline .time{font-size:13px;color:var(--muted);margin-bottom:6px}
+    .timeline .desc{font-size:15px;color:#ddd}
+
+    /* Sidebar */
+    .sidebar .card{background:linear-gradient(180deg,#070707,#0b0b0b);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);margin-bottom:18px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px;margin-right:8px;color:var(--muted)}
+
+    /* CTA footer */
+    .project-cta{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:18px;border-radius:10px;background:linear-gradient(180deg,#050505,#0b0b0b);margin-top:20px;border:1px solid rgba(255,255,255,0.02)}
+    .project-cta .text{color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{padding:40px 24px;text-align:center;color:var(--muted);font-size:14px;margin-top:40px}
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header>
-    <h1>
-      <a href="/">Minds Of Brands</a>
-    </h1>
+    <h1><a href="/">Minds Of Brands</a></h1>
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/product/">Product</a></li>
-        <li><a href="/about/">About Us</a></li>
-        <li><a href="/portfolio/">Portfolio</a></li>
-        <li><a href="/blog/">Blogs</a></li>
-        <li><a href="/contactus/">Contact</a></li>
+        <li><a href="../services/">Services</a></li>
+        <li><a href="../product/">Product</a></li>
+        <li><a href="../about/">About Us</a></li>
+        <li><a href="../portfolio/">Portfolio</a></li>
+        <li><a href="../blog/">Blogs</a></li>
+        <li><a href="../contactus/">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h2>BeatXP Smartwatch Growth Campaign</h2>
-    <p>Accelerating Smartwatch Sales with Strategic Digital Marketing</p>
-  </section>
+  <main class="container">
 
-  <!-- ABOUT PROJECT -->
-  <section class="section">
-    <h2>Project Overview</h2>
-    <p>BeatXP approached Minds Of Brands to scale the sales of its smartwatch product line over the next five months. Our goal was to create a complete performance marketing strategy combining SEO, PPC, and influencer-driven campaigns to boost visibility and conversions.</p>
-  </section>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>BeatXP Smartwatch — 5-Month Growth Campaign</h1>
+        <div class="meta">
+          <div>Client: BeatXP</div>
+          <div>•</div>
+          <div>Duration: 5 months</div>
+          <div>•</div>
+          <div>Focus: Sales growth • CRO • Influencer-led creative</div>
+        </div>
+        <p class="lead">A focused performance marketing program combining paid ads, CRO, ASO research and influencer content to scale sales for selected BeatXP smartwatch models in a crowded market.</p>
 
-  <!-- WHAT WE DID -->
-  <section class="section">
-    <h2>What We Did</h2>
-    <ul>
-      <li>🧩 Conducted in-depth competitor and audience research for smartwatch trends and buyer intent.</li>
-      <li>📈 Optimized eCommerce listings and ad landing pages for maximum conversion rate.</li>
-      <li>🔍 Designed an SEO strategy around high-intent smartwatch keywords and seasonal trends.</li>
-      <li>📣 Deployed multi-channel campaigns on Google Ads, Meta, and influencer collaborations.</li>
-      <li>💡 Introduced A/B testing for creatives, CTA copy, and campaign timing to maximize ROAS.</li>
-    </ul>
-  </section>
+        <div class="hero-cta">
+          <a class="btn" href="/contactus/">Work with us</a>
+          <a class="btn secondary" href="/portfolio/">See more case studies</a>
+        </div>
+      </div>
 
-  <!-- RESULTS -->
-  <section class="section">
-    <h2>Results Achieved</h2>
-    <ul>
-      <li>🚀 <strong>64%</strong> growth in smartwatch sales within 3 months.</li>
-      <li>👥 <strong>2.1M+</strong> digital reach across campaigns.</li>
-      <li>📊 <strong>45%</strong> improvement in CTR and <strong>38%</strong> reduction in CPC.</li>
-      <li>⭐ <strong>22%</strong> rise in repeat purchases through retargeting automation.</li>
-    </ul>
-    <a href="/contactus/" class="btn">Start a Similar Campaign</a>
-  </section>
+      <!-- Hero image -->
+      <div style="width:260px;text-align:center">
+        <img src="assets/images/beatxp-hero.png" alt="BeatXP Smartwatch" style="width:100%;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.6)">
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- Main article -->
+      <article>
+        <!-- Problem -->
+        <div class="section-block">
+          <h2>Problem Statement</h2>
+          <p>The client wanted to increase sales for select BeatXP smartwatch SKUs by 40% within 5 months and build sustainable repeat purchase behavior. The main challenge: a saturated market with strong competitors and a need to improve conversion efficiency across channels.</p>
+        </div>
+
+        <!-- Strategy & Execution -->
+        <div class="section-block">
+          <h2>Strategy & Execution</h2>
+          <p>We designed a multi-channel growth plan focused on the purchase funnel — awareness, consideration and conversion — and executed iterative experiments across creative, landing pages and audience segments.</p>
+
+          <ul style="margin-top:12px;color:#e8e8e8;line-height:1.7">
+            <li><strong>Market & competitor research:</strong> keyword gap analysis across marketplaces and D2C funnels; price-positioning insights.</li>
+            <li><strong>Performance marketing:</strong> Google Shopping + Search + YouTube prospecting; Meta conversion campaigns; rigorous A/B creative testing.</li>
+            <li><strong>CRO:</strong> optimized product pages, faster checkout flow and structured data for product snippets.</li>
+            <li><strong>Influencer program:</strong> 10+ micro-influencers (tech & fitness) for short-form reviews driving tracked traffic to product pages.</li>
+            <li><strong>Automation:</strong> email and WhatsApp flows for abandoned carts, post-purchase retention and flash offers.</li>
+          </ul>
+        </div>
+
+        <!-- Results -->
+        <div class="section-block">
+          <h2>Results</h2>
+
+          <div class="metrics" style="margin-top:10px">
+            <div class="metric">
+              <div class="num">+47%</div>
+              <div class="label">Overall sales growth (5 months)</div>
+            </div>
+            <div class="metric">
+              <div class="num">+32% ROAS</div>
+              <div class="label">Improvement in Return on Ad Spend</div>
+            </div>
+            <div class="metric">
+              <div class="num">Top 5</div>
+              <div class="label">Search rankings for key queries like “best smartwatch under ₹2000”</div>
+            </div>
+            <div class="metric">
+              <div class="num">-25%</div>
+              <div class="label">Cart abandonment reduction via retargeting</div>
+            </div>
+            <div class="metric">
+              <div class="num">8,000+</div>
+              <div class="label">New leads captured across acquisition channels</div>
+            </div>
+          </div>
+
+          <p style="margin-top:14px">These results were achieved through continuous creative optimisation, tight bid & audience controls, landing page improvements and a measurable influencer program. The campaigns were scaled while maintaining acquisition efficiency.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section-block">
+          <h2>5-Month Roadmap (Glance)</h2>
+          <ul class="timeline">
+            <li>
+              <div class="time">Month 0 — Research & Setup</div>
+              <div class="desc">Competitor audit, keyword mapping, analytics & tracking setup, baseline CRO tests.</div>
+            </li>
+            <li>
+              <div class="time">Month 1 — Launch Phase</div>
+              <div class="desc">Prospecting campaigns across Google & Meta, influencer seeding, initial landing page variants.</div>
+            </li>
+            <li>
+              <div class="time">Month 2 — Optimize</div>
+              <div class="desc">Creative swaps, audience narrowing, push for higher-converting placements.</div>
+            </li>
+            <li>
+              <div class="time">Month 3 — Scale</div>
+              <div class="desc">Increase budget on winning ad sets, wider influencer focus, retargeting sequences.</div>
+            </li>
+            <li>
+              <div class="time">Month 4 — Retain</div>
+              <div class="desc">Post-purchase flows, loyalty messaging, repeat purchase offers & measurement.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Key takeaway -->
+        <div class="section-block">
+          <h2>Key Takeaway</h2>
+          <p>Precision targeting, iterative creative testing and a mix of paid + influencer content allowed BeatXP to drive strong growth in a competitive category. Short, data-led experiments delivered scalable wins without sacrificing efficiency.</p>
+        </div>
+
+        <div class="project-cta">
+          <div>
+            <div style="font-weight:800;font-size:16px">Ready to scale your product?</div>
+            <div class="small">Performance marketing, CRO and influencer programs that convert.</div>
+          </div>
+          <div>
+            <a class="btn" href="/contactus/">Let's talk</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <h3 style="margin-bottom:8px">Project Snapshot</h3>
+          <div class="small" style="margin-bottom:12px">BeatXP • Smartwatch SKU growth • 5 months</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div><span class="tag">Performance Marketing</span> <span class="tag">CRO</span></div>
+            <div style="margin-top:8px"><span class="tag">Influencer</span> <span class="tag">ASO</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Tools & Platforms</h3>
+          <p class="small">Google Ads (Shopping, Search, YouTube), Meta Ads, Google Analytics, Hotjar, Shopify / D2C analytics, WhatsApp & email automation tools.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Client Quote</h3>
+          <p style="color:#ddd;font-style:italic">"Minds Of Brands helped us scale the SKUs we were worried about — their testing approach and quick optimizations made the difference." — Marketing Head, BeatXP</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Download</h3>
+          <p class="small">Want a printable summary? <a href="/assets/beatxp-case-summary.pdf" style="color:var(--accent2)">Download PDF</a></p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Optional: Related case studies -->
+    <section style="margin-top:28px">
+      <h2>Related case studies</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <a href="/betterhalf-case-study.html" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">Betterhalf.ai — ASO & Play Store Growth</a>
+        <a href="/scribd-case-study.html" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">Scribd — Audio Ebooks SEO</a>
+        <a href="/brainware-case-study.html" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">Brainware University — Events & Rankings</a>
+      </div>
+    </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
     <p>
       <a href="/">Home</a> |
-      <a href="/services/">Services</a> |
-      <a href="/product/">Product</a> |
-      <a href="/about/">About Us</a> |
-      <a href="/portfolio/">Portfolio</a> |
-      <a href="/blog/">Blogs</a> |
-      <a href="/contactus/">Contact</a>
+      <a href="../services/">Services</a> |
+      <a href="../product/">Product</a> |
+      <a href="../about/">About Us</a> |
+      <a href="../portfolio/">Portfolio</a> |
+      <a href="../blog/">Blogs</a> |
+      <a href="../contactus/">Contact</a>
     </p>
   </footer>
 
