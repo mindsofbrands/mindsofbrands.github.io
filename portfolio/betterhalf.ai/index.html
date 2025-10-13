@@ -1,1 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Betterhalf.ai — Case Study | Minds Of Brands</title>
+  <meta name="description" content="Betterhalf.ai case study — App Store Optimization (ASO) strategy, ranking improvements, and engagement growth by Minds Of Brands." />
+  <meta property="og:title" content="Betterhalf.ai — Case Study | Minds Of Brands" />
+  <meta property="og:description" content="How Minds Of Brands helped Betterhalf.ai improve Play Store ranking, engagement, and visibility in 6 months through ASO and creative optimization." />
+  <meta property="og:url" content="https://mindsofbrands.com/portfolio/betterhalf/" />
+  <meta property="og:image" content="https://mindsofbrands.com/assets/images/betterhalf-og.png" />
+
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+  <style>
+    :root{
+      --bg:#000;
+      --muted:#bdbdbd;
+      --accent1:#00f;
+      --accent2:#0ff;
+      --card-bg:#0a0a0a;
+      --accent-cta:#8000ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:#fff;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    header{
+      position:sticky;top:0;z-index:100;
+      background:linear-gradient(90deg,rgba(0,0,0,0.9),rgba(0,0,0,0.85));
+      backdrop-filter: blur(6px);
+      padding:14px 32px;
+      display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    header .brand{font-size:24px;font-weight:700;text-decoration:none;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    nav ul{display:flex;list-style:none;gap:18px;align-items:center}
+    nav a{color:#fff;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent2)}
+
+    .container{max-width:1100px;margin:40px auto;padding:0 20px}
+
+    .hero{
+      text-align:left;padding:44px 24px;border-radius:12px;
+      background:linear-gradient(180deg,rgba(10,10,10,0.6),rgba(10,10,10,0.4));
+      display:flex;gap:28px;align-items:center;
+    }
+    .hero-left{flex:1}
+    .hero h1{font-size:36px;margin-bottom:8px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .hero p.lead{color:var(--muted);font-size:16px;margin-bottom:12px}
+    .meta{display:flex;gap:12px;color:var(--muted);font-size:14px;margin-bottom:10px}
+    .hero-cta{margin-top:8px}
+    .btn{background:var(--accent-cta);color:#fff;padding:12px 20px;border-radius:10px;
+      text-decoration:none;font-weight:700;display:inline-block}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}.hero{flex-direction:column}.hero h1{font-size:28px}}
+
+    article{background:transparent;padding:18px;border-radius:10px}
+    h2{font-size:22px;margin-bottom:12px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    p{color:#e8e8e8;margin-bottom:14px}
+    .section-block{background:var(--card-bg);padding:18px;border-radius:10px;margin-bottom:18px;
+      border:1px solid rgba(255,255,255,0.02)}
+
+    .metrics{display:flex;gap:12px;flex-wrap:wrap}
+    .metric{flex:1 1 160px;background:linear-gradient(180deg,#0f0f0f,#070707);
+      padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .metric .num{font-size:20px;font-weight:800;margin-bottom:6px}
+    .metric .label{font-size:13px;color:var(--muted)}
+
+    .timeline{list-style:none;padding-left:16px;border-left:2px dashed rgba(255,255,255,0.03);margin-left:8px}
+    .timeline li{position:relative;padding:12px 12px 12px 22px;margin-bottom:6px}
+    .timeline li:before{content:'';position:absolute;left:-11px;top:18px;width:12px;height:12px;
+      border-radius:50%;background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      box-shadow:0 0 8px rgba(0,255,255,0.06)}
+    .timeline .time{font-size:13px;color:var(--muted);margin-bottom:6px}
+    .timeline .desc{font-size:15px;color:#ddd}
+
+    .sidebar .card{background:linear-gradient(180deg,#070707,#0b0b0b);padding:16px;border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);margin-bottom:18px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);
+      font-size:13px;margin-right:8px;color:var(--muted)}
+
+    .project-cta{display:flex;gap:12px;align-items:center;justify-content:space-between;
+      padding:18px;border-radius:10px;background:linear-gradient(180deg,#050505,#0b0b0b);
+      margin-top:20px;border:1px solid rgba(255,255,255,0.02)}
+    .project-cta .text{color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{
+      background:#000;color:#fff;text-align:center;padding:20px;margin-top:40px;
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
+    footer p{font-size:14px;}
+    footer a{color:#0ff;text-decoration:none;margin:0 10px}
+    footer a:hover{text-decoration:underline}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      <a href="/" style="
+        font-size: 24px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #00f, #0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+      ">
+        Minds Of Brands
+      </a>
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/product/">Product</a></li>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/blog/">Blogs</a></li>
+        <li><a href="/contactus/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Betterhalf.ai — 6-Month Play Store Growth</h1>
+        <div class="meta">
+          <div>Client: Betterhalf.ai</div>
+          <div>•</div>
+          <div>Duration: 6 months</div>
+          <div>•</div>
+          <div>Focus: ASO • App installs • Ratings growth</div>
+        </div>
+        <p class="lead">A complete App Store Optimization (ASO) project to enhance organic visibility, keyword rankings, installs, and retention for the Betterhalf.ai app on the Google Play Store.</p>
+
+        <div class="hero-cta">
+          <a class="btn" href="/contactus/">Work with us</a>
+          <a class="btn secondary" href="/portfolio/">See more case studies</a>
+        </div>
+      </div>
+
+      <div style="width:260px;text-align:center">
+        <img src="/assets/images/betterhalf-hero.png" alt="Betterhalf.ai App" style="width:100%;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.6)">
+      </div>
+    </section>
+
+    <div class="grid">
+      <article>
+
+        <div class="section-block">
+          <h2>Problem Statement</h2>
+          <p>Betterhalf.ai wanted to improve its Play Store visibility and ranking among top dating apps while reducing CPI and boosting organic installs. The key challenge: increasing discoverability in a highly competitive app category while maintaining strong user ratings.</p>
+        </div>
+
+        <div class="section-block">
+          <h2>Strategy & Execution</h2>
+          <ul style="margin-top:12px;color:#e8e8e8;line-height:1.7">
+            <li><strong>Keyword optimization:</strong> Researched high-volume search terms and restructured title, short description, and tags.</li>
+            <li><strong>Creative revamp:</strong> Optimized app screenshots, icon, and promo videos to improve conversion rates.</li>
+            <li><strong>Review management:</strong> Implemented prompt timing and sentiment analysis to boost 4+ star reviews.</li>
+            <li><strong>Localization:</strong> Added multilingual metadata (Hindi, Tamil, Bengali) for regional discovery.</li>
+            <li><strong>Ad synergy:</strong> Combined paid UA campaigns with ASO experiments for compounding effect.</li>
+          </ul>
+        </div>
+
+        <div class="section-block">
+          <h2>Results</h2>
+          <div class="metrics" style="margin-top:10px">
+            <div class="metric"><div class="num">+118%</div><div class="label">Increase in organic installs</div></div>
+            <div class="metric"><div class="num">Top 10</div><div class="label">Ranking for “AI marriage app” & “matchmaking India”</div></div>
+            <div class="metric"><div class="num">4.5★</div><div class="label">Average rating maintained</div></div>
+            <div class="metric"><div class="num">-26%</div><div class="label">Drop in CPI across paid & organic synergy</div></div>
+            <div class="metric"><div class="num">+80%</div><div class="label">Improvement in store CTR</div></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2>Timeline</h2>
+          <ul class="timeline">
+            <li><div class="time">Month 1 — Research</div><div class="desc">Baseline audit, competitor mapping, keyword discovery.</div></li>
+            <li><div class="time">Month 2 — Metadata update</div><div class="desc">Implemented ASO metadata & creative updates.</div></li>
+            <li><div class="time">Month 3–4 — A/B Testing</div><div class="desc">Tested new icon, screenshots, and CTA text for optimal CTR.</div></li>
+            <li><div class="time">Month 5 — Localization</div><div class="desc">Launched multi-language metadata to expand organic reach.</div></li>
+            <li><div class="time">Month 6 — Scale & monitor</div><div class="desc">Performance tracking, rating optimization, sustained rank growth.</div></li>
+          </ul>
+        </div>
+
+        <div class="section-block">
+          <h2>Key Takeaway</h2>
+          <p>Strategic metadata optimization, continuous A/B testing, and creative improvements helped Betterhalf.ai achieve sustainable Play Store growth while maintaining user trust and engagement.</p>
+        </div>
+
+        <div class="project-cta">
+          <div>
+            <div style="font-weight:800;font-size:16px">Want to grow your app visibility?</div>
+            <div class="small">ASO, creative optimization, and engagement-driven app growth.</div>
+          </div>
+          <div><a class="btn" href="/contactus/">Let's talk</a></div>
+        </div>
+
+      </article>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h3 style="margin-bottom:8px">Project Snapshot</h3>
+          <div class="small" style="margin-bottom:12px">Betterhalf.ai • App Store Optimization • 6 months</div>
+          <div><span class="tag">ASO</span> <span class="tag">User Acquisition</span></div>
+          <div style="margin-top:8px"><span class="tag">Play Store</span> <span class="tag">Creative Testing</span></div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Tools & Platforms</h3>
+          <p class="small">Google Play Console, AppTweak, Data.ai, Firebase, Google Ads, Meta Ads, and ASOdesk.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Client Quote</h3>
+          <p style="color:#ddd;font-style:italic">"Minds Of Brands revamped our ASO strategy with a data-driven approach that boosted rankings and reviews in record time." — Growth Manager, Betterhalf.ai</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Download</h3>
+          <p class="small">Want a printable summary? <a href="/assets/betterhalf-case-summary.pdf" style="color:var(--accent2)">Download PDF</a></p>
+        </div>
+      </aside>
+    </div>
+
+    <section style="margin-top:28px">
+      <h2>Related case studies</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <a href="/portfolio/beatxp/" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">BeatXP — Smartwatch Growth Campaign</a>
+        <a href="/portfolio/scribd/" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">Scribd — Audio Ebooks SEO</a>
+        <a href="/portfolio/brainware/" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">Brainware University — Events Promotion</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
+    <p>
+      <a href="/">Home</a> |
+      <a href="/services/">Services</a> |
+      <a href="/product/">Product</a> |
+      <a href="/about/">About Us</a> |
+      <a href="/portfolio/">Portfolio</a> |
+      <a href="/blog/">Blogs</a> |
+      <a href="/contactus/">Contact</a>
+    </p>
+  </footer>
+
+</body>
+</html>
 
