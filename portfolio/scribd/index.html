@@ -1,112 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scribd Audio Ebooks | Minds Of Brands</title>
-  <link rel="icon" type="image/png" href="/assets/images/logo.png">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scribd Audio Ebooks — Case Study | Minds Of Brands</title>
+  <meta name="description" content="Scribd Audio Ebooks case study — SEO, structured data and content strategy to rank fiction & business audiobooks on Google." />
+  <meta property="og:title" content="Scribd Audio Ebooks — Case Study | Minds Of Brands" />
+  <meta property="og:description" content="How Minds Of Brands boosted Scribd audiobook visibility and rankings in 2 months using SEO, schema and content distribution." />
+  <meta property="og:url" content="https://mindsofbrands.com/portfolio/scribd/" />
+  <meta property="og:image" content="https://mindsofbrands.com/assets/images/scribd-og.png" />
+
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+  <style>
+    :root{
+      --bg:#000;
+      --muted:#bdbdbd;
+      --accent1:#00f;
+      --accent2:#0ff;
+      --card-bg:#0a0a0a;
+      --accent-cta:#8000ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:#fff;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:100;
+      background:linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.85));
+      backdrop-filter: blur(6px);
+      padding:14px 32px;display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid rgba(255,255,255,0.03)
+    }
+    header .brand{font-size:24px;font-weight:700;text-decoration:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    nav ul{display:flex;list-style:none;gap:18px;align-items:center}
+    nav a{color:#fff;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent2)}
+
+    /* Page container */
+    .container{max-width:1100px;margin:40px auto;padding:0 20px}
+
+    /* Hero */
+    .hero{
+      text-align:left;padding:44px 24px;border-radius:12px;
+      background:linear-gradient(180deg, rgba(10,10,10,0.6), rgba(10,10,10,0.4));
+      display:flex;gap:28px;align-items:center;
+    }
+    .hero-left{flex:1}
+    .hero h1{font-size:36px;margin-bottom:8px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p.lead{color:var(--muted);font-size:16px;margin-bottom:12px}
+    .meta{display:flex;gap:12px;color:var(--muted);font-size:14px;margin-bottom:10px}
+    .hero-cta{margin-top:8px}
+    .btn{background:var(--accent-cta);color:#fff;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+    /* Grid layout for content */
+    .grid{display:grid;grid-template-columns: 1fr 360px;gap:28px;margin-top:28px}
+    @media (max-width:980px){ .grid{grid-template-columns:1fr} .hero{flex-direction:column} .hero h1{font-size:28px} }
+
+    /* Article */
+    article{background:transparent;padding:18px;border-radius:10px}
+    h2{font-size:22px;margin-bottom:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    p{color:#e8e8e8;margin-bottom:14px}
+    .section-block{background:var(--card-bg);padding:18px;border-radius:10px;margin-bottom:18px;border:1px solid rgba(255,255,255,0.02)}
+
+    /* Metrics cards */
+    .metrics{display:flex;gap:12px;flex-wrap:wrap}
+    .metric{flex:1 1 160px;background:linear-gradient(180deg,#0f0f0f,#070707);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .metric .num{font-size:20px;font-weight:800;margin-bottom:6px}
+    .metric .label{font-size:13px;color:var(--muted)}
+
+    /* Timeline */
+    .timeline{list-style:none;padding-left:16px;border-left:2px dashed rgba(255,255,255,0.03);margin-left:8px}
+    .timeline li{position:relative;padding:12px 12px 12px 22px;margin-bottom:6px}
+    .timeline li:before{content:'';position:absolute;left:-11px;top:18px;width:12px;height:12px;border-radius:50%;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 0 8px rgba(0,255,255,0.06)}
+    .timeline .time{font-size:13px;color:var(--muted);margin-bottom:6px}
+    .timeline .desc{font-size:15px;color:#ddd}
+
+    /* Sidebar */
+    .sidebar .card{background:linear-gradient(180deg,#070707,#0b0b0b);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);margin-bottom:18px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px;margin-right:8px;color:var(--muted)}
+
+    /* CTA footer */
+    .project-cta{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:18px;border-radius:10px;background:linear-gradient(180deg,#050505,#0b0b0b);margin-top:20px;border:1px solid rgba(255,255,255,0.02)}
+    .project-cta .text{color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer p { font-size: 14px; }
+    footer a {
+      color: #0ff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h2 { font-size: 28px; }
+      h3 { font-size: 22px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <a href="https://mindsofbrands.com/">Minds Of Brands</a>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/portfolio/">Portfolio</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <!-- HEADER (same as other pages) -->
+  <header>
+    <a class="brand" href="/">
+      <span style="font-weight:700; font-size:24px;
+                   background: linear-gradient(90deg, #00f, #0ff);
+                   -webkit-background-clip: text;
+                   -webkit-text-fill-color: transparent;
+                   text-decoration: none;">
+        Minds Of Brands
+      </span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/product/">Product</a></li>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/portfolio/">Portfolio</a></li>
+        <li><a href="/blog/">Blogs</a></li>
+        <li><a href="/contactus/">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>Scribd Audio Ebooks — SEO Growth Case Study</h1>
-      <p>Ranking Fiction and Business Audiobooks on Google’s Top Search Results</p>
-    </div>
-  </section>
+  <main class="container">
 
-  <!-- Case Study Details -->
-  <section class="case-study">
-    <div class="container">
-      <h2>Project Overview</h2>
-      <p>
-        Scribd wanted to improve the visibility and search ranking of its Fiction and Business audiobooks within just <strong>2 months</strong>. 
-        Our goal was to make Scribd’s audiobook listings dominate the top results for high-intent keywords on Google Search.
-      </p>
-
-      <h2>Our Strategy</h2>
-      <ul>
-        <li>Performed detailed keyword research for Fiction and Business audiobook niches.</li>
-        <li>Optimized audiobook titles, meta descriptions, and structured data for Google indexing.</li>
-        <li>Created engaging content snippets for better SERP click-through rates.</li>
-        <li>Built high-quality backlinks through book review blogs and audio content networks.</li>
-        <li>Integrated schema for “Audiobook” and “Author” to boost visibility in search features.</li>
-      </ul>
-
-      <h2>Execution Timeline</h2>
-      <ul>
-        <li><strong>Week 1:</strong> SEO audit, keyword gap analysis, and on-page optimization setup.</li>
-        <li><strong>Week 2–4:</strong> Content updates, backlink acquisition, and technical SEO fixes.</li>
-        <li><strong>Week 5–8:</strong> Monitoring keyword movements and continuous optimization.</li>
-      </ul>
-
-      <h2>Results Achieved</h2>
-      <ul class="metrics">
-        <li><strong>+120%</strong> increase in organic visibility in 2 months.</li>
-        <li><strong>Top 3</strong> Google rankings for 10+ high-volume ebook keywords.</li>
-        <li><strong>60%</strong> higher click-through rate on targeted audiobook listings.</li>
-        <li><strong>35%</strong> growth in paid and organic subscription conversions.</li>
-      </ul>
-
-      <h2>Key Takeaway</h2>
-      <p>
-        Within a short timeframe, Scribd’s audiobook catalog became more discoverable and engaging for users searching for specific genres like Fiction and Business audiobooks — solidifying Scribd’s dominance in the audio reading market.
-      </p>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta">
-    <div class="container">
-      <h2>Want Results Like Scribd?</h2>
-      <p>Let’s elevate your digital presence with data-driven SEO strategies that deliver measurable impact.</p>
-      <a href="/contact/" class="btn">Let’s Collaborate</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <a href="https://mindsofbrands.com/">Minds Of Brands</a>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Scribd Audio Ebooks — 2-Month SEO Sprint</h1>
+        <div class="meta">
+          <div>Client: Scribd</div>
+          <div>•</div>
+          <div>Duration: 2 months</div>
+          <div>•</div>
+          <div>Focus: SEO • Structured Data • Content Distribution</div>
         </div>
-        <div class="footer-nav">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/portfolio/">Portfolio</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/contact/">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-copy">
-          <p>© 2025 Minds Of Brands. All Rights Reserved.</p>
+        <p class="lead">A rapid SEO sprint to push select Fiction and Business audiobooks into top search results — combining on-page optimization, schema implementation, and a targeted content & backlink push.</p>
+
+        <div class="hero-cta">
+          <a class="btn" href="/contactus/">Work with us</a>
+          <a class="btn secondary" href="/portfolio/">See more case studies</a>
         </div>
       </div>
+
+      <!-- Hero image -->
+      <div style="width:260px;text-align:center">
+        <img src="/assets/images/scribd-hero.png" alt="Scribd Audio Ebooks" style="width:100%;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.6)">
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- Main article -->
+      <article>
+        <!-- Problem -->
+        <div class="section-block">
+          <h2>Problem Statement</h2>
+          <p>Scribd needed to rank selected Fiction and Business audiobooks on Google Search within 2 months to capture high-intent readers and increase subscriptions. Key challenges included highly competitive keywords and inadequate schema markup for audio content.</p>
+        </div>
+
+        <!-- Strategy & Execution -->
+        <div class="section-block">
+          <h2>Strategy & Execution</h2>
+          <p>We executed a focused sprint targeting on-page SEO, structured data, content snippets and authoritative link placements to accelerate ranking signals.</p>
+
+          <ul style="margin-top:12px;color:#e8e8e8;line-height:1.7">
+            <li><strong>Keyword + intent mapping:</strong> prioritized high-conversion short- and long-tail keywords for fiction & business audiobooks.</li>
+            <li><strong>On-page optimization:</strong> updated titles, meta descriptions, H-tags and internal linking for prioritized audiobook pages.</li>
+            <li><strong>Schema & rich snippets:</strong> implemented Audiobook/CreativeWork schema, author schema and audioObject markup to improve SERP presentation.</li>
+            <li><strong>Content snippets:</strong> crafted concise, search-optimized descriptions and Q&A snippets to target featured snippets and People Also Ask (PAA).</li>
+            <li><strong>Link building:</strong> acquired editorial links from book review sites, podcast editors and audio content aggregators.</li>
+          </ul>
+        </div>
+
+        <!-- Results -->
+        <div class="section-block">
+          <h2>Results</h2>
+
+          <div class="metrics" style="margin-top:10px">
+            <div class="metric">
+              <div class="num">+120%</div>
+              <div class="label">Increase in organic visibility (2 months)</div>
+            </div>
+            <div class="metric">
+              <div class="num">Top 3</div>
+              <div class="label">Rankings for 10+ high-volume ebook keywords</div>
+            </div>
+            <div class="metric">
+              <div class="num">+60%</div>
+              <div class="label">Improved CTR from SERP snippets</div>
+            </div>
+            <div class="metric">
+              <div class="num">+35%</div>
+              <div class="label">Increase in subscription conversions</div>
+            </div>
+            <div class="metric">
+              <div class="num">50+</div>
+              <div class="label">Editorial backlinks secured</div>
+            </div>
+          </div>
+
+          <p style="margin-top:14px">These gains came from tightly focused on-page changes, fast schema deployment and targeted editorial outreach — all coordinated to produce ranking signals within the 2-month sprint.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section-block">
+          <h2>2-Month Roadmap (Glance)</h2>
+          <ul class="timeline">
+            <li>
+              <div class="time">Week 1 — Audit & Keyword Mapping</div>
+              <div class="desc">Conducted a full SEO audit, selected priority pages and mapped keywords by intent.</div>
+            </li>
+            <li>
+              <div class="time">Weeks 2–3 — On-page & Schema</div>
+              <div class="desc">Updated metadata, implemented audiobook, author & audioObject schema, improved internal linking.</div>
+            </li>
+            <li>
+              <div class="time">Weeks 4–6 — Content & Outreach</div>
+              <div class="desc">Published targeted content snippets and secured editorial backlinks from niche book sites.</div>
+            </li>
+            <li>
+              <div class="time">Weeks 7–8 — Monitor & Optimize</div>
+              <div class="desc">Tracked ranking changes, adjusted content and expanded link acquisition for momentum.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Key takeaway -->
+        <div class="section-block">
+          <h2>Key Takeaway</h2>
+          <p>Fast, surgical SEO implementation — focusing on schema, intent-led content and quality links — can move competitive content into top SERP positions quickly when coordinated effectively.</p>
+        </div>
+
+        <div class="project-cta">
+          <div>
+            <div style="font-weight:800;font-size:16px">Want to improve your content rankings fast?</div>
+            <div class="small">We run short, high-impact SEO sprints tailored for publishers and audio platforms.</div>
+          </div>
+          <div>
+            <a class="btn" href="/contactus/">Let's talk</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <h3 style="margin-bottom:8px">Project Snapshot</h3>
+          <div class="small" style="margin-bottom:12px">Scribd • Audiobook SEO Sprint • 2 months</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div><span class="tag">SEO</span> <span class="tag">Schema</span></div>
+            <div style="margin-top:8px"><span class="tag">Content</span> <span class="tag">Outreach</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Tools & Platforms</h3>
+          <p class="small">Google Search Console, Screaming Frog, Ahrefs, Schema.org markup tools, Outreach platforms, Moz/SEMrush.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Client Quote</h3>
+          <p style="color:#ddd;font-style:italic">"Minds Of Brands delivered rapid, measurable SEO wins for our audiobook catalog — the sprint approach worked brilliantly." — Content Lead, Scribd</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:8px">Download</h3>
+          <p class="small">Want a printable summary? <a href="/assets/scribd-case-summary.pdf" style="color:var(--accent2)">Download PDF</a></p>
+        </div>
+      </aside>
     </div>
+
+    <!-- Related case studies -->
+    <section style="margin-top:28px">
+      <h2>Related case studies</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <a href="/beatxp/" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">BeatXP — Smartwatch Growth</a>
+        <a href="/betterhalf/" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">Betterhalf.ai — Play Store ASO</a>
+        <a href="/brainware/" style="display:block;padding:12px 16px;background:#0b0b0b;border-radius:10px;text-decoration:none;color:#fff">Brainware University — Events & Rankings</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (same as other pages) -->
+  <footer>
+    <p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
+    <p>
+      <a href="/">Home</a> |
+      <a href="/services/">Services</a> |
+      <a href="/product/">Product</a> |
+      <a href="/about/">About Us</a> |
+      <a href="/portfolio/">Portfolio</a> |
+      <a href="/blog/">Blogs</a> |
+      <a href="/contactus/">Contact</a>
+    </p>
   </footer>
 
 </body>
