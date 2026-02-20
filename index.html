@@ -139,11 +139,49 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero h2 { font-size: 40px; }
-      .hero p { font-size: 18px; }
-      .section h2 { font-size: 30px; }
-      .products h2 { font-size: 30px; }
-    }
+
+  /* Make header stack vertically */
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding-top: 15px;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  /* Adjust hero text */
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* Section titles */
+  .section h2,
+  .products h2 {
+    font-size: 26px;
+  }
+
+  /* Paragraph text */
+  .section p,
+  .products p {
+    font-size: 15px;
+  }
+
+  /* Button resize */
+  .btn {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+}
   </style>
 </head>
 <body>
