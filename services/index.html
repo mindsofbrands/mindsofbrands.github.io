@@ -229,5 +229,28 @@
     </p>
   </footer>
 
+  <script>
+function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
+
+window.addEventListener("pageshow", function () {
+  const menu = document.getElementById("navMenu");
+  if(menu) menu.style.display = "none";
+});
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", function () {
+    const menu = document.getElementById("navMenu");
+    if(menu) menu.style.display = "none";
+  });
+});
+</script>
+  
 </body>
 </html>
