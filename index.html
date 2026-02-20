@@ -186,19 +186,24 @@ footer a:hover {
     display: block;
   }
 
-  nav {
-    display: none;
-    width: 100%;
-  }
+ nav {
+  position: absolute;
+  top: 70px;      /* sits below header */
+  left: 0;
+  width: 100%;
+  background: #000;
+  display: none;
+  padding: 20px 0;
+}
 
-  nav ul {
-    flex-direction: column;
-    padding-top: 15px;
-  }
+nav ul {
+  flex-direction: column;
+  text-align: center;
+}
 
-  nav ul li {
-    margin: 10px 0;
-  }
+nav ul li {
+  margin: 15px 0;
+}
 
   .hero h2 {
     font-size: 32px;
