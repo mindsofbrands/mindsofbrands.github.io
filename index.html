@@ -137,6 +137,16 @@
     }
     footer a:hover { text-decoration: underline; }
 
+    /* Hide menu button on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+ 
     /* Responsive */
     @media (max-width: 768px) {
 
@@ -189,8 +199,7 @@
  <!-- HEADER -->
   <header>
     <h1><a href="/">Minds Of Brands</a></h1>
-    <button class="menu-toggle">☰</button>
-    <nav class="nav-menu">
+    <nav>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="../services/">Services</a></li>
