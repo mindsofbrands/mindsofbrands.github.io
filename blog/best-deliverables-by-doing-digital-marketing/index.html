@@ -26,12 +26,24 @@
       top: 0;
       z-index: 1000;
     }
-    header h1 {
-      font-size: 24px;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+
+    .menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+    
+    header h1 a {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(90deg, #00f, #0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
     nav ul { list-style: none; display: flex; }
     nav ul li { margin-left: 20px; }
     nav ul li a {
@@ -150,19 +162,22 @@
 <!-- HEADER -->
 <header>
   <h1><a href="/">Minds Of Brands</a></h1>
-  <nav>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav id="navMenu">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/services/">Services</a></li>
       <li><a href="/product/">Product</a></li>
       <li><a href="/about/">About Us</a></li>
       <li><a href="/portfolio/">Portfolio</a></li>
-      <li><a href="/blog/" class="active">Blogs</a></li>
+      <li><a href="/blog/">Blogs</a></li>
       <li><a href="/contactus/">Contact</a></li>
     </ul>
   </nav>
 </header>
-
+  
 <!-- HERO / TITLE -->
 <section class="hero">
   <h2>Best Deliverables by Doing Digital Marketing</h2>
@@ -232,5 +247,27 @@
   </p>
 </footer>
 
+  <script>
+function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
+
+window.addEventListener("pageshow", function () {
+  const menu = document.getElementById("navMenu");
+  if(menu) menu.style.display = "none";
+});
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", function () {
+    document.getElementById("navMenu").style.display = "none";
+  });
+});
+</script>
+  
 </body>
 </html>
