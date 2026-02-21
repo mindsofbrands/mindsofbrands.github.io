@@ -32,13 +32,24 @@
       z-index: 100;
       border-bottom: 1px solid #111;
     }
-    header h1 {
-      font-size: 24px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+    
+    header h1 a {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(90deg, #00f, #0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
     header h1 a {
       text-decoration: none;
       color: inherit;
@@ -127,28 +138,54 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      h2 { font-size: 28px; }
-      h3 { font-size: 22px; }
-    }
+  h2 { font-size: 28px; }
+  h3 { font-size: 22px; }
+
+  .menu-toggle { display: block; }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    display: none;
+    padding: 20px 0;
+    z-index: 999;
+  }
+
+  nav ul { 
+    flex-direction: column; 
+    text-align: center; 
+  }
+
+  nav ul li { 
+    margin: 15px 0; 
+  }
+}
+    
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
-  <header>
-    <h1><a href="/">Minds Of Brands</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="../services/">Services</a></li>
-        <li><a href="../product/">Product</a></li>
-        <li><a href="../about/">About Us</a></li>
-        <li><a href="../portfolio/">Portfolio</a></li>
-        <li><a href="../blog/">Blogs</a></li>
-        <li><a href="../contactus/">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header>
+  <h1><a href="/">Minds Of Brands</a></h1>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav id="navMenu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/product/">Product</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/blog/">Blogs</a></li>
+      <li><a href="/contactus/">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
 
   <!-- Blog Intro -->
@@ -192,5 +229,27 @@
     </p>
   </footer>
 
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
+
+window.addEventListener("pageshow", function () {
+  const menu = document.getElementById("navMenu");
+  if(menu) menu.style.display = "none";
+});
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", function () {
+    document.getElementById("navMenu").style.display = "none";
+  });
+});
+</script>
+  
 </body>
 </html>
