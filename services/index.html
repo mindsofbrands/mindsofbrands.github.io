@@ -31,13 +31,24 @@
       top: 0;
       z-index: 100;
     }
-    header h1 {
-      font-size: 24px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+
+    .menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+    
+    header h1 a {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(90deg, #00f, #0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
     nav ul { list-style: none; display: flex; }
     nav ul li { margin-left: 20px; }
     nav ul li a {
@@ -140,9 +151,37 @@
 
     /* Responsive */
     @media(max-width:768px) {
-      h2 { font-size: 28px; }
-      .service-card h3 { font-size: 20px; }
-    }
+
+  header {
+    flex-direction: row;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    display: none;
+    padding: 20px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  h2 { font-size: 28px; }
+  .service-card h3 { font-size: 20px; }
+}
   </style>
 
   <!-- Icons CDN -->
@@ -152,19 +191,22 @@
 
  <!-- HEADER -->
   <header>
-    <h1><a href="/">Minds Of Brands</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="../services/">Services</a></li>
-        <li><a href="../product/">Product</a></li>
-        <li><a href="../about/">About Us</a></li>
-        <li><a href="../portfolio/">Portfolio</a></li>
-        <li><a href="../blog/">Blogs</a></li>
-        <li><a href="../contactus/">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h1><a href="/">Minds Of Brands</a></h1>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav id="navMenu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/product/">Product</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/blog/">Blogs</a></li>
+      <li><a href="/contactus/">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- SERVICES SECTION -->
   <div class="container">
