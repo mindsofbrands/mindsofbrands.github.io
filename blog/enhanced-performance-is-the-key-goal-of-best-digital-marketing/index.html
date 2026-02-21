@@ -328,17 +328,17 @@ nav.active {
   <script>
 function toggleMenu() {
   const menu = document.getElementById("navMenu");
-  if (window.innerWidth <= 768) {  // Only toggle on mobile
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-  }
+  menu.classList.toggle("active");
 }
 
 // Close mobile menu on link click
 document.querySelectorAll("#navMenu a").forEach(link => {
   link.addEventListener("click", function () {
-    if (window.innerWidth <= 768) {
-      document.getElementById("navMenu").style.display = "none";
-    }
+    document.getElementById("navMenu").classList.remove("active");
+  });
+});
+</script>
+
   });
 });
 
