@@ -26,13 +26,24 @@
       top: 0;
       z-index: 1000;
     }
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+    
     header h1 a {
-      font-size: 24px;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-    }
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(90deg, #00f, #0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
     nav ul { list-style: none; display: flex; }
     nav ul li { margin-left: 20px; }
     nav ul li a {
@@ -142,7 +153,10 @@
 <!-- HEADER -->
 <header>
   <h1><a href="/">Minds Of Brands</a></h1>
-  <nav>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav id="navMenu">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/services/">Services</a></li>
@@ -223,6 +237,24 @@
     <a href="/contactus/">Contact</a>
   </p>
 </footer>
+
+  <script> 
+  function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  if (window.innerWidth <= 768) {  // Only toggle on mobile
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  }
+}
+
+// Close mobile menu on link click
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", function () {
+    if (window.innerWidth <= 768) {
+      document.getElementById("navMenu").style.display = "none";
+    }
+  });
+});
+  </script>
 
 </body>
 </html>
