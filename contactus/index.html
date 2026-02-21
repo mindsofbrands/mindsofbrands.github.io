@@ -142,9 +142,25 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      h2 { font-size: 28px; }
-      .contact-details h3 { font-size: 20px; }
-    }
+  h2 { font-size: 28px; }
+  .contact-details h3 { font-size: 20px; }
+
+  header { flex-direction: row; }
+  .menu-toggle { display: block; }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    display: none;
+    padding: 20px 0;
+  }
+
+  nav ul { flex-direction: column; text-align: center; }
+  nav ul li { margin: 15px 0; }
+}
   </style>
 </head>
 <body>
