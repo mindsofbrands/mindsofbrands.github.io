@@ -258,23 +258,17 @@
 <script>
 function toggleMenu() {
   const menu = document.getElementById("navMenu");
-  if (menu.style.display === "block") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "block";
+  if (window.innerWidth <= 768) {  // Only toggle on mobile
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
   }
 }
 
-/* Close menu when page loads (fix back button issue) */
-window.addEventListener("pageshow", function () {
-  const menu = document.getElementById("navMenu");
-  if(menu) menu.style.display = "none";
-});
-
-/* Close menu when any nav link is clicked */
+// Close mobile menu on link click
 document.querySelectorAll("#navMenu a").forEach(link => {
   link.addEventListener("click", function () {
-    document.getElementById("navMenu").style.display = "none";
+    if (window.innerWidth <= 768) {
+      document.getElementById("navMenu").style.display = "none";
+    }
   });
 });
 </script>
