@@ -183,12 +183,27 @@ footer a{
 }
 
 /* ========== MOBILE ========== */
-@media(max-width:768px){
+/* @media(max-width:768px){
 
   .menu-toggle{
     display:block;
   }
 
+*/
+  
+@media (max-width: 768px) {
+  .hero .btn {
+    display: block;
+    width: 100%;
+  }
+
+  .hero .btn + .btn {
+    margin-top: 12px; /* gap between buttons */
+  }
+}
+
+
+  
   nav{
     position:absolute;
     top:70px;
@@ -242,7 +257,7 @@ footer a{
 <section class="hero">
   <h1>BeatXP Smartwatch — 5-Month Growth Campaign</h1>
   <p>A focused performance marketing program combining paid ads, CRO, ASO research and influencer content to scale smartwatch sales in a competitive market.</p>
-  <a href="/contactus/" class="btn">Work with us</a>
+  <a href="/contactus/" class="btn">Work with us</a> 
   <a href="/portfolio/" class="btn secondary">See more case studies</a>
 </section>
 
