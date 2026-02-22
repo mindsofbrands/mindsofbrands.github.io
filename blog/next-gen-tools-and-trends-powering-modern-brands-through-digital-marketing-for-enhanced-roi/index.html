@@ -97,19 +97,22 @@
 <body>
 
   <header>
-    <h1><a href="/">Minds Of Brands</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/product/">Product</a></li>
-        <li><a href="/about/">About Us</a></li>
-        <li><a href="/portfolio/">Portfolio</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/contactus/">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h1><a href="/">Minds Of Brands</a></h1>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav id="navMenu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/product/">Product</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/blog/">Blogs</a></li>
+      <li><a href="/contactus/">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
   <div class="container">
     <div class="post">
@@ -151,5 +154,22 @@
     </p>
   </footer>
 
+  <script>
+function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  menu.classList.toggle("active");
+}
+
+// Close mobile menu on link click
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", function () {
+    document.getElementById("navMenu").classList.remove("active");
+  });
+});
+</script>
+
+  });
+});
+  
 </body>
 </html>
