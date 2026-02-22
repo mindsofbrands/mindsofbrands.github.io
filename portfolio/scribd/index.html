@@ -138,34 +138,36 @@ nav.active{
 
     /* Responsive */
     @media (max-width: 768px) {
-      h2 { font-size: 28px; }
-      h3 { font-size: 22px; }
-    }
 
-.menu-toggle{
-  display:block;
+  h2 { font-size: 28px; }
+  h3 { font-size: 22px; }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#000;
+    display:none;
+    padding:20px 0;
+  }
+
+  nav ul{
+    flex-direction:column;
+    text-align:center;
+    gap:0;
+  }
+
+  nav ul li{
+    margin:15px 0;
+  }
+
 }
 
-nav{
-  position:absolute;
-  top:70px;
-  left:0;
-  width:100%;
-  background:#000;
-  display:none;
-  padding:20px 0;
-}
-
-nav ul{
-  flex-direction:column;
-  text-align:center;
-  gap:0;
-}
-
-nav ul li{
-  margin:15px 0;
-}
-    
   </style>
 </head>
 <body>
