@@ -189,7 +189,7 @@ footer a{
     display:block;
    } */
 
-   @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
 
      .menu-toggle{
     display:block;
@@ -200,10 +200,21 @@ footer a{
   }  
 
  .hero .btn + .btn {
-    margin-top: 12px;     /* gap between buttons */
+    margin-top: 12px;     
   } 
-}
+} /* gap between buttons */
 
+
+@media (max-width: 768px) {
+  .hero a {
+    display: inline-block;
+    margin-bottom: 12px;  /* small gap */
+  }
+
+  .hero a:last-child {
+    margin-bottom: 0;
+  }
+}
 
   
   nav{
