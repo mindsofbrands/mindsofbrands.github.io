@@ -8,76 +8,76 @@
   <link rel="icon" href="/assets/images/favicon.png" type="image/png" />
 
   <style>
-    body {
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #000;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #111;
-    }
-    header h1 a {
-      font-size: 24px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-    }
-    nav ul li {
-      margin-left: 20px;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover { color: #0ff; }
+    .blog-header {
+  position: relative;
+  background: url('../assets/images/blog-header-placeholder.jpg') center/cover no-repeat;
+  text-align: center;
+  color: #fff;
+  padding: 120px 20px 80px;
+}
+.blog-header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+.blog-header h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 36px;
+  line-height: 1.3;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .post-title {
-      font-size: 32px;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .post-meta {
-      color: #bdbdbd;
-      font-size: 14px;
-      margin-bottom: 24px;
-    }
-    .post-content h2 {
-      font-size: 22px;
-      margin-top: 32px;
-      margin-bottom: 12px;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .post-content p {
-      margin-bottom: 20px;
-    }
+.meta {
+  text-align: center;
+  color: #ddd;
+  font-size: 0.95rem;
+  margin-top: -40px;
+  margin-bottom: 40px;
+}
+
+.blog-content {
+  background: linear-gradient(to bottom, #fef9f0, #f7ecd9);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  color: #000;
+}
+
+.blog-content h3 {
+  font-size: 24px;
+  margin: 25px 0 10px;
+  color: #111;
+}
+
+.blog-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.blog-content img {
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+}
+
+.btn {
+  background-color: #8000ff;
+  color: #fff;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-top: 25px;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
     footer {
       text-align: center;
       padding: 20px;
@@ -119,40 +119,40 @@
       <h1 class="post-title">Next-Gen Tools and Trends Powering Modern Brands Through Digital Marketing for Enhanced ROI</h1>
       <div class="post-meta">By Minds Of Brands | Published on October 15, 2025</div>
 
-      <div class="post-content">
-        <p>In today’s hyper-competitive landscape, digital marketing is no longer just about visibility — it’s about measurable performance, smarter automation, and intelligent engagement that fuels brand growth. As consumer behavior evolves and platforms become more dynamic, brands that embrace next-generation marketing tools and data-driven strategies are redefining how success looks online. Modern brands are now integrating AI, automation, and real-time analytics to craft hyper-personalized experiences, ensuring every marketing dollar generates maximum return. Let’s explore how emerging tools and trends are transforming digital marketing into a results-driven ecosystem for enhanced ROI.</p>
+      <!-- BLOG HEADER -->
+<section class="blog-header">
+  <h2>Next-Gen Tools and Trends Powering Modern Brands Through Digital Marketing for Enhanced ROI</h2>
+</section>
 
-        <h2>AI-Powered Marketing: The Shift Toward Intelligent Personalization</h2>
-        <p>Artificial Intelligence has become the backbone of advanced digital marketing. From predictive analytics to content generation and customer segmentation, AI tools are enabling marketers to make smarter decisions. Platforms like ChatGPT, Jasper, and other AI-based systems assist in content creation, while AI-driven ads ensure better targeting and efficiency. The result? More effective campaigns with less waste.</p>
+<!-- META -->
+<div class="meta">
+  <p>By <strong>Minds Of Brands</strong> | Published on October 15, 2025</p>
+</div>
 
-        <h2>Automation and CRM Integration for Seamless Workflows</h2>
-        <p>Marketing automation tools now connect deeply with Customer Relationship Management (CRM) systems to create seamless journeys. Leads are nurtured based on behavior, not just timing. Personalized messaging, triggered workflows, and lifecycle marketing reduce manual workload and boost conversion effectiveness — especially when combined with real-time insights.</p>
+<!-- BLOG CONTENT -->
+<div class="container blog-content">
 
-        <h2>Video & Short-Form Content: The New Engagement Frontier</h2>
-        <p>Audiences crave storytelling, and video — especially short-form — has become the king of engagement. Platforms like YouTube Shorts, Instagram Reels, and TikTok enable brands to reach audiences instantly. Smart marketers analyze performance data (views, watch time, engagement) to optimize content, turning eyeballs into action faster than ever.</p>
+  <p>In today’s hyper-competitive landscape, digital marketing is no longer just about visibility — it’s about measurable performance, smarter automation, and intelligent engagement that fuels brand growth. As consumer behavior evolves and platforms become more dynamic, brands that embrace next-generation marketing tools and data-driven strategies are redefining how success looks online.</p>
 
-        <h2>Data-Driven Campaigns & Real-Time Optimization</h2>
-        <p>Performance marketing is built on data. Tools like GA4, conversion APIs, and live dashboards let marketers adapt on the fly — shifting budgets, creatives, and targeting instantly based on performance signals. Predictive models help anticipate trends, letting brands stay ahead of shifts while maximizing ROI.</p>
+  <h3>AI-Powered Marketing: The Shift Toward Intelligent Personalization</h3>
+  <p>Artificial Intelligence has become the backbone of advanced digital marketing. From predictive analytics to content generation and customer segmentation, AI tools are enabling marketers to make smarter decisions.</p>
 
-        <p>Next-generation digital marketing is about agility, intelligence, and alignment between creativity and analytics. Brands that adopt AI, automation, and real-time optimization don’t just keep up — they lead. At Minds Of Brands, we believe in evolving with tools, optimizing with data, and putting experience first. Because true marketing success is not just winning eyeballs — it’s converting them.</p>     
-      </div>
-     <a href="/blog/" class="btn">← Back to Blogs</a>
-    </div>
-    
-  </div>
+  <!-- Mid-image placeholder -->
+  <img src="../assets/images/blog-mid-placeholder.jpg" alt="Next Gen Digital Marketing Visualization">
 
-  <footer>
-    <p>© 2025 Minds Of Brands. All rights reserved.</p>
-    <p>
-      <a href="/">Home</a> |
-      <a href="/services/">Services</a> |
-      <a href="/product/">Product</a> |
-      <a href="/about/">About Us</a> |
-      <a href="/portfolio/">Portfolio</a> |
-      <a href="/blog/">Blog</a> |
-      <a href="/contactus/">Contact</a>
-    </p>
-  </footer>
+  <h3>Automation and CRM Integration for Seamless Workflows</h3>
+  <p>Marketing automation tools now connect deeply with CRM systems to create seamless journeys. Leads are nurtured based on behavior, not just timing.</p>
+
+  <h3>Video & Short-Form Content: The New Engagement Frontier</h3>
+  <p>Audiences crave storytelling, and video — especially short-form — has become the king of engagement across modern platforms.</p>
+
+  <h3>Data-Driven Campaigns & Real-Time Optimization</h3>
+  <p>Performance marketing is built on data. Live dashboards and analytics tools allow brands to optimize campaigns instantly.</p>
+
+  <p>Next-generation digital marketing is about agility, intelligence, and alignment between creativity and analytics. Brands that adopt AI, automation, and real-time optimization don’t just keep up — they lead.</p>
+
+  <a href="/blog/" class="btn">← Back to Blogs</a>
+</div>
 
   <script>
 function toggleMenu() {
