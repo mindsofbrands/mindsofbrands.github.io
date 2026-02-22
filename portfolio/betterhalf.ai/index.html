@@ -43,6 +43,20 @@
       background:linear-gradient(90deg,var(--accent1),var(--accent2));
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
     nav ul{display:flex;list-style:none;gap:18px;align-items:center}
+
+nav.active{
+  display:block;
+}
+
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  background:none;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+}
+    
     nav a{color:#fff;text-decoration:none;font-weight:600}
     nav a:hover{color:var(--accent2)}
 
@@ -107,6 +121,34 @@
     footer p{font-size:14px;}
     footer a{color:#0ff;text-decoration:none;margin:0 10px}
     footer a:hover{text-decoration:underline}
+
+@media (max-width: 768px) {
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#000;
+    display:none;
+    padding:20px 0;
+  }
+
+  nav ul{
+    flex-direction:column;
+    text-align:center;
+    gap:0;
+  }
+
+  nav ul li{
+    margin:15px 0;
+  }
+}
+    
   </style>
 </head>
 
@@ -269,6 +311,19 @@
     </p>
   </footer>
 
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  menu.classList.toggle("active");
+}
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", function () {
+    document.getElementById("navMenu").classList.remove("active");
+  });
+});
+</script>
+  
 </body>
 </html>
 
