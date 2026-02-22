@@ -360,5 +360,18 @@ nav ul li{
     </p>
   </footer>
 
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  menu.classList.toggle("active");
+}
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", function () {
+    document.getElementById("navMenu").classList.remove("active");
+  });
+});
+</script>
+  
 </body>
 </html>
