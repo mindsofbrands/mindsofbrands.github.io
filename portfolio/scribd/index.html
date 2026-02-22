@@ -41,6 +41,20 @@
     }
     header .brand{font-size:24px;font-weight:700;text-decoration:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     nav ul{display:flex;list-style:none;gap:18px;align-items:center}
+
+nav.active{
+  display:block;
+}
+
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  background:none;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+}
+    
     nav a{color:#fff;text-decoration:none;font-weight:600}
     nav a:hover{color:var(--accent2)}
 
@@ -114,33 +128,63 @@
       h2 { font-size: 28px; }
       h3 { font-size: 22px; }
     }
+
+.menu-toggle{
+  display:block;
+}
+
+nav{
+  position:absolute;
+  top:70px;
+  left:0;
+  width:100%;
+  background:#000;
+  display:none;
+  padding:20px 0;
+}
+
+nav ul{
+  flex-direction:column;
+  text-align:center;
+  gap:0;
+}
+
+nav ul li{
+  margin:15px 0;
+}
+    
   </style>
 </head>
 <body>
 
   <!-- HEADER (same as other pages) -->
-  <header>
-    <a class="brand" href="/">
-      <span style="font-weight:700; font-size:24px;
-                   background: linear-gradient(90deg, #00f, #0ff);
-                   -webkit-background-clip: text;
-                   -webkit-text-fill-color: transparent;
-                   text-decoration: none;">
-        Minds Of Brands
-      </span>
-    </a>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/product/">Product</a></li>
-        <li><a href="/about/">About Us</a></li>
-        <li><a href="/portfolio/">Portfolio</a></li>
-        <li><a href="/blog/">Blogs</a></li>
-        <li><a href="/contactus/">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header>
+  <a class="brand" href="/">
+    <span style="font-weight:700; font-size:24px;
+                 background: linear-gradient(90deg, #00f, #0ff);
+                 -webkit-background-clip: text;
+                 -webkit-text-fill-color: transparent;
+                 text-decoration: none;">
+      Minds Of Brands
+    </span>
+  </a>
+
+  <!-- HAMBURGER -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <!-- IMPORTANT: ID ADDED -->
+  <nav id="navMenu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/product/">Product</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/blog/">Blogs</a></li>
+      <li><a href="/contactus/">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main class="container">
 
