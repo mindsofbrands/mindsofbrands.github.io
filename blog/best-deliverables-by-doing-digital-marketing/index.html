@@ -151,10 +151,37 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero h2 { font-size: 28px; }
-      .blog-content h3 { font-size: 20px; }
-      .blog-content p { font-size: 15px; }
-    }
+
+  /* SHOW hamburger */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide nav by default */
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #000;
+    width: 100%;
+    display: none;
+    text-align: center;
+    border-top: 1px solid #222;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  .hero h2 { font-size: 26px; }
+  .blog-content h3 { font-size: 19px; }
+  .blog-content p { font-size: 15px; }
+
+}
   </style>
 </head>
 <body>
