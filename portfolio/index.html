@@ -99,16 +99,23 @@
       box-shadow: 0px 4px 12px rgba(0,0,0,0.5);
     }
 
-    .visit-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #00f, #0ff);
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+   :root{
+  --accent1:#0066ff;
+  --accent2:#00c2ff;
+  --accent-cta:linear-gradient(90deg,var(--accent1),var(--accent2));
+}
+
+.visit-btn {
+  display: inline-block;
+  background: var(--accent-cta);
+  color: #000;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border: none;
+}
     .visit-btn:hover { opacity: 0.8; }
 
     .gallery {
