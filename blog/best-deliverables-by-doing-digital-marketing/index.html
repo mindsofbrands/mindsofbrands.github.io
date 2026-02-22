@@ -10,138 +10,143 @@
   <meta name="keywords" content="Digital Marketing, SEO, Branding, ROI, Minds Of Brands, Online Marketing">
   <meta name="author" content="Minds Of Brands">
 
-  <!-- Styling -->
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #000; background-color: #000; }
+    <!-- Styling -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: Arial, sans-serif; line-height: 1.6; color: #000; background-color: #000; }
+  
+      header {
+        background: #000;
+        color: #fff;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+  
+      .menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
 
-    header {
-      background: #000;
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .menu-toggle {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-    
-    header h1 a {
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: none;
-  background: linear-gradient(90deg, #00f, #0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-    nav ul { list-style: none; display: flex; }
-    nav ul li { margin-left: 20px; }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav ul li a:hover { color: #0ff; }
-
-    /* Hero / Title Section */
-    .hero {
-      background: url('../images/blog-banner.jpg') center/cover no-repeat;
-      color: #fff;
-      text-align: center;
-      padding: 100px 20px;
-      position: relative;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    .hero h2 {
-      position: relative;
-      font-size: 36px;
-      z-index: 1;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .meta {
-      text-align: center;
-      color: #ccc;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    /* Blog Container */
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-
-    .blog-content {
-      background: linear-gradient(to bottom, #fef9f0, #f7ecd9);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
-      color: #000;
-    }
-
-    .blog-content h3 {
-      font-size: 22px;
-      margin-top: 25px;
-      color: #222;
-    }
-
-    .blog-content p {
-      font-size: 16px;
-      margin-bottom: 15px;
-    }
-
-    /* Image placeholder mid-article */
-    .mid-image {
-      margin: 30px 0;
-      text-align: center;
-    }
-    .mid-image img {
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
-    }
-
-    .btn {
-      background-color: #8000ff;
-      color: #fff;
-      padding: 12px 25px;
-      text-decoration: none;
-      font-size: 16px;
-      border-radius: 6px;
-      display: inline-block;
-      transition: transform 0.3s ease;
-      margin-top: 15px;
-    }
-    .btn:hover { transform: scale(1.05); }
-
-    footer {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-    footer p { font-size: 14px; }
+      /* Make nav visible on desktop */
+nav {
+  display: block;
+}  
+      
+      header h1 a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    background: linear-gradient(90deg, #00f, #0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+      nav ul { list-style: none; display: flex; }
+      nav ul li { margin-left: 20px; }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      nav ul li a:hover { color: #0ff; }
+  
+      /* Hero / Title Section */
+      .hero {
+        background: url('../images/blog-banner.jpg') center/cover no-repeat;
+        color: #fff;
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .hero h2 {
+        position: relative;
+        font-size: 36px;
+        z-index: 1;
+        background: linear-gradient(90deg, #00f, #0ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+  
+      .meta {
+        text-align: center;
+        color: #ccc;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+  
+      /* Blog Container */
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+  
+      .blog-content {
+        background: linear-gradient(to bottom, #fef9f0, #f7ecd9);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+        color: #000;
+      }
+  
+      .blog-content h3 {
+        font-size: 22px;
+        margin-top: 25px;
+        color: #222;
+      }
+  
+      .blog-content p {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+  
+      /* Image placeholder mid-article */
+      .mid-image {
+        margin: 30px 0;
+        text-align: center;
+      }
+      .mid-image img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+      }
+  
+      .btn {
+        background-color: #8000ff;
+        color: #fff;
+        padding: 12px 25px;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 6px;
+        display: inline-block;
+        transition: transform 0.3s ease;
+        margin-top: 15px;
+      }
+      .btn:hover { transform: scale(1.05); }
+  
+      footer {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+      footer p { font-size: 14px; }
     footer a {
       color: #0ff;
       text-decoration: none;
@@ -274,27 +279,22 @@
   </p>
 </footer>
 
-  <script>
+ <script>
 function toggleMenu() {
   const menu = document.getElementById("navMenu");
-  if (menu.style.display === "block") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "block";
-  }
+  menu.classList.toggle("active");
 }
 
-window.addEventListener("pageshow", function () {
-  const menu = document.getElementById("navMenu");
-  if(menu) menu.style.display = "none";
-});
-
+// Close mobile menu on link click
 document.querySelectorAll("#navMenu a").forEach(link => {
   link.addEventListener("click", function () {
-    document.getElementById("navMenu").style.display = "none";
+    document.getElementById("navMenu").classList.remove("active");
   });
 });
 </script>
+
+  });
+});
   
 </body>
 </html>
