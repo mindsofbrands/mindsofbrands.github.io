@@ -4,9 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>BeatXP Smartwatch — Case Study | Minds Of Brands</title>
+
 <meta name="description" content="BeatXP Smartwatch case study — Growth strategy, ads, ASO, influencer marketing, and results from a 5-month campaign by Minds Of Brands." />
 <meta property="og:title" content="BeatXP Smartwatch — Case Study | Minds Of Brands" />
-<meta property="og:description" content="How Minds Of Brands increased BeatXP smartwatch sales by 47% in 5 months using targeted performance marketing, influencer campaigns, and CRO." />
+<meta property="og:description" content="How Minds Of Brands increased BeatXP smartwatch sales by 47% in 5 months." />
 <meta property="og:url" content="https://mindsofbrands.com/beatxp-case-study.html" />
 <meta property="og:image" content="https://mindsofbrands.com/assets/images/beatxp-og.png" />
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
@@ -30,15 +31,15 @@ color:#fff;
 line-height:1.6;
 }
 
-/* ================= HEADER FIXED ================= */
+/* ================= HEADER ================= */
 
 header{
 position:sticky;
 top:0;
 z-index:1000;
-background:linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.85));
+background:linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.9));
 backdrop-filter:blur(6px);
-border-bottom:1px solid rgba(255,255,255,0.03);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .header-inner{
@@ -63,7 +64,7 @@ background:linear-gradient(90deg,var(--accent1),var(--accent2));
 nav ul{
 display:flex;
 list-style:none;
-gap:18px;
+gap:20px;
 align-items:center;
 }
 
@@ -115,12 +116,11 @@ text-align:center;
 }
 }
 
-/* ================= REST OF YOUR ORIGINAL CSS ================= */
+/* ================= PAGE ================= */
 
 .container{max-width:1100px;margin:40px auto;padding:0 20px}
 
 .hero{
-text-align:left;
 padding:44px 24px;
 border-radius:12px;
 background:linear-gradient(180deg, rgba(10,10,10,0.6), rgba(10,10,10,0.4));
@@ -139,7 +139,7 @@ background:linear-gradient(90deg,var(--accent1),var(--accent2));
 -webkit-text-fill-color:transparent;
 }
 
-.hero p.lead{color:var(--muted);margin-bottom:12px}
+.hero p{color:var(--muted);margin-bottom:12px}
 
 .meta{display:flex;gap:12px;color:var(--muted);font-size:14px;margin-bottom:10px}
 
@@ -158,7 +158,63 @@ background:transparent;
 border:1px solid rgba(255,255,255,0.06);
 }
 
-/* (ALL YOUR REMAINING ORIGINAL CSS CONTINUES EXACTLY SAME...) */
+.grid{
+display:grid;
+grid-template-columns:1fr 360px;
+gap:28px;
+margin-top:28px;
+}
+
+@media (max-width:980px){
+.grid{grid-template-columns:1fr}
+.hero{flex-direction:column}
+.hero h1{font-size:28px}
+}
+
+.section-block{
+background:var(--card-bg);
+padding:18px;
+border-radius:10px;
+margin-bottom:18px;
+border:1px solid rgba(255,255,255,0.03);
+}
+
+.metrics{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.metric{
+flex:1 1 160px;
+background:linear-gradient(180deg,#0f0f0f,#070707);
+padding:16px;
+border-radius:10px;
+}
+
+.metric .num{
+font-size:20px;
+font-weight:800;
+margin-bottom:6px;
+}
+
+.timeline{
+list-style:none;
+padding-left:16px;
+border-left:2px dashed rgba(255,255,255,0.1);
+}
+
+.timeline li{
+padding:12px 12px 12px 22px;
+margin-bottom:6px;
+}
+
+.sidebar .card{
+background:#0b0b0b;
+padding:16px;
+border-radius:10px;
+margin-bottom:18px;
+}
 
 footer{
 background:#000;
@@ -173,10 +229,6 @@ color:#0ff;
 text-decoration:none;
 margin:0 10px;
 }
-
-footer a:hover{
-text-decoration:underline;
-}
 </style>
 </head>
 
@@ -184,7 +236,6 @@ text-decoration:underline;
 
 <header>
 <div class="header-inner">
-
 <a href="/" class="brand">Minds Of Brands</a>
 
 <nav id="navMenu">
@@ -200,22 +251,55 @@ text-decoration:underline;
 </nav>
 
 <button class="menu-toggle" id="menuToggle">☰</button>
-
 </div>
 </header>
 
-<!-- YOUR ENTIRE MAIN CONTENT REMAINS EXACTLY SAME -->
 <main class="container">
-...
+
+<section class="hero">
+<div class="hero-left">
+<h1>BeatXP Smartwatch — 5-Month Growth Campaign</h1>
+<div class="meta">
+<div>Client: BeatXP</div>
+<div>•</div>
+<div>Duration: 5 months</div>
+</div>
+<p>A focused performance marketing program combining paid ads, CRO and influencer content to scale smartwatch sales.</p>
+<a class="btn" href="/contactus/">Work with us</a>
+</div>
+</section>
+
+<div class="grid">
+
+<article>
+
+<div class="section-block">
+<h2>Results</h2>
+<div class="metrics">
+<div class="metric"><div class="num">+47%</div>Sales Growth</div>
+<div class="metric"><div class="num">+32%</div>ROAS</div>
+<div class="metric"><div class="num">-25%</div>Cart Abandonment</div>
+</div>
+</div>
+
+</article>
+
+<aside class="sidebar">
+<div class="card">
+<h3>Project Snapshot</h3>
+<p>Performance Marketing • CRO • Influencer</p>
+</div>
+</aside>
+
+</div>
+
 </main>
 
 <footer>
-<p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
+<p>© 2025 Minds Of Brands. All rights reserved.</p>
 <p>
 <a href="/">Home</a> |
 <a href="/services/">Services</a> |
-<a href="/product/">Product</a> |
-<a href="/about/">About Us</a> |
 <a href="/portfolio/">Portfolio</a> |
 <a href="/blog/">Blogs</a> |
 <a href="/contactus/">Contact</a>
@@ -223,15 +307,15 @@ text-decoration:underline;
 </footer>
 
 <script>
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
+const menuToggle=document.getElementById("menuToggle");
+const navMenu=document.getElementById("navMenu");
 
-menuToggle.addEventListener("click", () => {
+menuToggle.addEventListener("click",()=>{
 navMenu.classList.toggle("active");
 });
 
-document.querySelectorAll("#navMenu a").forEach(link => {
-link.addEventListener("click", () => {
+document.querySelectorAll("#navMenu a").forEach(link=>{
+link.addEventListener("click",()=>{
 navMenu.classList.remove("active");
 });
 });
