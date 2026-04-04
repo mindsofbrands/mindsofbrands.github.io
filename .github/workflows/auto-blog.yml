@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-            - name: Generate Blog
+      - name: Generate Blog
         run: |
           topics=("AI Tools for Startups" "Instagram Marketing Strategies" "Best Free Tools for Business Growth" "How to Start an Online Business" "Digital Marketing Trends 2026")
           tools=("ChatGPT" "Canva" "Notion" "Grammarly" "Ubersuggest" "Pictory")
