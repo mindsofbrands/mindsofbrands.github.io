@@ -8,6 +8,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PQJG7KKF');</script>
 <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blogs - Minds Of Brands</title>
@@ -26,7 +27,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background-color: #000;
     }
 
-    /* Header */
     header {
       background: #000;
       color: #fff;
@@ -40,45 +40,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-bottom: 1px solid #111;
     }
 
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-    
-    header h1 a {
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: none;
-  background: linear-gradient(90deg, #00f, #0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-    header h1 a {
-      text-decoration: none;
-      color: inherit;
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
     }
+
+    header h1 a {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      background: linear-gradient(90deg, #00f, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     nav ul { list-style: none; display: flex; }
     nav ul li { margin-left: 20px; }
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
     }
-    nav ul li a:hover { color: #0ff; }
 
-    /* Container */
     .container {
       max-width: 1000px;
       margin: 60px auto;
       padding: 40px 20px;
     }
 
-    /* Headings */
     h2 {
       text-align: center;
       margin-bottom: 30px;
@@ -88,23 +81,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       -webkit-text-fill-color: transparent;
     }
 
-    h3 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, #00f, #0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p {
-      font-size: 16px;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
-
-    /* Blog Card */
     .section {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
       padding: 20px;
       background-color: #111;
       border-radius: 10px;
@@ -119,15 +97,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
-      transition: transform 0.2s ease;
     }
 
-    .read-more:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
-    /* Footer */
     footer {
       background: #000;
       color: #fff;
@@ -135,51 +106,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 20px;
       margin-top: 40px;
     }
-    footer p { font-size: 14px; }
-    footer a {
-      color: #0ff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover { text-decoration: underline; }
 
-    /* Responsive */
     @media (max-width: 768px) {
-  h2 { font-size: 28px; }
-  h3 { font-size: 22px; }
+      .menu-toggle { display: block; }
 
-  .menu-toggle { display: block; }
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #000;
+        display: none;
+        padding: 20px 0;
+      }
 
-  nav {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: #000;
-    display: none;
-    padding: 20px 0;
-    z-index: 999;
-  }
-
-  nav ul { 
-    flex-direction: column; 
-    text-align: center; 
-  }
-
-  nav ul li { 
-    margin: 15px 0; 
-  }
-}
-    
+      nav ul { flex-direction: column; text-align: center; }
+      nav ul li { margin: 15px 0; }
+    }
   </style>
 </head>
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQJG7KKF"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <!-- HEADER -->
- <header>
+
+<!-- HEADER -->
+<header>
   <h1><a href="/">Minds Of Brands</a></h1>
 
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
@@ -197,65 +147,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </nav>
 </header>
 
+<!-- INTRO -->
+<div class="container section">
+  <h2>Our Blogs</h2>
+  <p>Insights, strategies, and stories from the world of digital marketing.</p>
+</div>
 
-  <!-- Blog Intro -->
-  <div class="container section">
-    <h2>Our Blogs</h2>
-    <p>Insights, strategies, and stories from the world of digital marketing, technology, and business growth — curated by Minds Of Brands.</p>
-  </div>
+<!-- 🔥 AUTO BLOG LIST -->
+<div id="blog-list" class="container"></div>
 
-  <!-- Blog 1 -->
-  <div class="container section">
-    <h3>Enhanced Performance is the Key Goal of Best Digital Marketing</h3>
-    <p>Discover how the right digital marketing strategies can maximize your business performance with data-driven, ROI-focused campaigns and creative storytelling.</p>
-    <a href="./enhanced-performance-is-the-key-goal-of-best-digital-marketing/" class="read-more">Read More</a>
-  </div>
-
-  <!-- Blog 2 -->
-  <div class="container section">
-    <h3>Best Deliverables by Doing Digital Marketing</h3>
-    <p>Explore the measurable results businesses can achieve through digital marketing — from visibility and engagement to conversions and long-term growth.</p>
-    <a href="./best-deliverables-by-doing-digital-marketing/" class="read-more">Read More</a>
-  </div>
-
- <!-- Blog 3 -->
-  <div class="container section">
-    <h3>Next-Gen Tools and Trends Powering Modern Brands Through Digital Marketing for Enhanced ROI</h3>
-    <p>In a world where attention is the scarcest resource, modern brands need more than visibility — they need precision, automation, and creativity working together to turn engagement into measurable business results. Below, we unpack the tools and trends that are shaping high-performance digital marketing today.</p>
-    <a href="https://mindsofbrands.com/blog/next-gen-tools-and-trends-powering-modern-brands-through-digital-marketing-for-enhanced-roi/" class="read-more">Read More</a>
-  </div>
-
- <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
-    <p>
-      <a href="/">Home</a> |
-      <a href="../services/">Services</a> |
-      <a href="../product/">Product</a> |
-      <a href="../about/">About Us</a> |
-      <a href="../portfolio/">Portfolio</a> |
-      <a href="../blog/">Blogs</a> |
-      <a href="../contactus/">Contact</a>
-    </p>
-  </footer>
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Minds Of Brands. All rights reserved.</p>
+</footer>
 
 <script>
 function toggleMenu() {
   const menu = document.getElementById("navMenu");
-  if (window.innerWidth <= 768) {  // Only toggle on mobile
+  if (window.innerWidth <= 768) {
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
   }
 }
 
-// Close mobile menu on link click
-document.querySelectorAll("#navMenu a").forEach(link => {
-  link.addEventListener("click", function () {
-    if (window.innerWidth <= 768) {
-      document.getElementById("navMenu").style.display = "none";
+// 🔥 AUTO LOAD BLOGS
+async function loadBlogs() {
+  const res = await fetch('https://api.github.com/repos/mindsofbrands/mindsofbrands.github.io/contents/blog');
+  const data = await res.json();
+
+  let html = '';
+
+  data.forEach(item => {
+    if (item.type === 'dir' && item.name !== '.github') {
+
+      const title = item.name.replace(/-/g, ' ');
+
+      html += `
+        <div class="section">
+          <h3 style="text-transform: capitalize;">${title}</h3>
+          <a href="/blog/${item.name}/" class="read-more">Read More</a>
+        </div>
+      `;
     }
   });
-});
+
+  document.getElementById('blog-list').innerHTML = html;
+}
+
+loadBlogs();
 </script>
-  
+
 </body>
 </html>
