@@ -169,26 +169,42 @@ function toggleMenu() {
   }
 }
 
-// 🔥 AUTO LOAD BLOGS
+// 🔥 FORMAT TITLE
+function formatTitle(slug) {
+  return slug
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, char => char.toUpperCase());
+}
+
+// 🔥 DESCRIPTION (SMART SEO STYLE)
+function generateDescription(title) {
+  return `Discover ${title} and learn powerful strategies, tools, and insights to grow your online business and digital presence.`;
+}
+
+// 🔥 LOAD BLOGS
 async function loadBlogs() {
   const res = await fetch('https://api.github.com/repos/mindsofbrands/mindsofbrands.github.io/contents/blog');
   const data = await res.json();
 
-  let html = '';
+  let html = '<div class="blog-grid">';
 
-  data.forEach(item => {
+  data.reverse().forEach(item => {
     if (item.type === 'dir' && item.name !== '.github') {
 
-      const title = item.name.replace(/-/g, ' ');
+      const title = formatTitle(item.name);
+      const description = generateDescription(title);
 
       html += `
-        <div class="section">
-          <h3 style="text-transform: capitalize;">${title}</h3>
+        <div class="blog-card">
+          <h3>${title}</h3>
+          <p>${description}</p>
           <a href="/blog/${item.name}/" class="read-more">Read More</a>
         </div>
       `;
     }
   });
+
+  html += '</div>';
 
   document.getElementById('blog-list').innerHTML = html;
 }
