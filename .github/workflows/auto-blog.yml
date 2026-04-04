@@ -1,0 +1,122 @@
+name: Auto Blog Generator
+
+on:
+  schedule:
+    - cron: '0 0 * * 1,3,5'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Generate Blog
+        run: |
+          topics=("AI Tools for Startups" "Instagram Marketing Strategies" "Best Free Tools for Business Growth" "How to Start an Online Business" "Digital Marketing Trends 2026")
+          tools=("ChatGPT" "Canva" "Notion" "Grammarly" "Ubersuggest" "Pictory")
+
+          topic=$(printf "%s\n" "${topics[@]}" | shuf -n 1)
+          tool1=$(printf "%s\n" "${tools[@]}" | shuf -n 1)
+          tool2=$(printf "%s\n" "${tools[@]}" | shuf -n 1)
+          tool3=$(printf "%s\n" "${tools[@]}" | shuf -n 1)
+
+          title="Top Strategies for $topic in 2026"
+          slug=$(echo "$topic" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+          folder="blog/$slug-$(date +%s)"
+
+          mkdir -p "$folder"
+
+          has_pdf=$((RANDOM % 2))
+
+          cat <<EOF > "$folder/index.html"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$title</title>
+
+<meta name="description" content="Explore $title and grow your business online.">
+
+<style>
+body {
+  font-family: Arial;
+  background:#000;
+  color:#fff;
+  padding:40px;
+  max-width:900px;
+  margin:auto;
+}
+.blog-container {
+  background:#111;
+  padding:25px;
+  border-radius:12px;
+}
+a.button {
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  background:linear-gradient(90deg,#00f,#0ff);
+  color:#000;
+  text-decoration:none;
+  border-radius:6px;
+}
+</style>
+</head>
+
+<body>
+<div class="blog-container">
+
+<img src="https://source.unsplash.com/800x400/?$topic,digital-marketing" style="width:100%; border-radius:10px; margin-bottom:20px;">
+
+<h1>$title</h1>
+
+<p>This blog explores <strong>$topic</strong> and how it helps businesses grow.</p>
+
+<h2>Top Tools</h2>
+<ul>
+<li>$tool1</li>
+<li>$tool2</li>
+<li>$tool3</li>
+</ul>
+EOF
+
+          if [ $has_pdf -eq 1 ]; then
+            cat <<EOF >> "$folder/index.html"
+
+<hr>
+<h2>Free Resource</h2>
+<a href="./guide.txt" class="button">Download Guide</a>
+EOF
+
+            cat <<EOF > "$folder/guide.txt"
+$title
+
+Guide on $topic
+
+- $tool1
+- $tool2
+- $tool3
+EOF
+          fi
+
+          cat <<EOF >> "$folder/index.html"
+
+<hr>
+<a href="/blog/" class="button">Explore More Blogs</a>
+
+</div>
+</body>
+</html>
+EOF
+
+      - name: Commit & Push
+        run: |
+          git config --global user.name "auto-bot"
+          git config --global user.email "auto@bot.com"
+          git add .
+          git commit -m "Auto blog generated" || echo "No changes"
+          git push
