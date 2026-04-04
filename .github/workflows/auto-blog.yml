@@ -48,6 +48,10 @@ jobs:
 
                   <body style="font-family: Arial; background:#000; color:#fff; padding:40px; max-width:800px; margin:auto;">
 
+                  <img src="https://source.unsplash.com/800x400/?$topic,digital-marketing" 
+                  alt="$title" 
+                  style="width:100%; border-radius:10px; margin-bottom:20px;">
+                  
                   <h1>$title</h1>
 
                   <p>This blog explores <strong>$topic</strong> and how it helps businesses grow using smart digital marketing strategies.</p>
