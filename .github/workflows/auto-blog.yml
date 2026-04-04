@@ -15,9 +15,55 @@ jobs:
 
       - name: Generate Blog
         run: |
-          mkdir -p blog/auto-post-$(date +%s)
-          echo "<h1>Auto Blog Test</h1><p>This is auto generated.</p>" > blog/auto-post-$(date +%s)/index.html
+          slug="auto-blog-$(date +%s)"
+          
+          folder="blog/$slug"
 
+          mkdir -p $folder
+
+          title="Top Free Tools Every Business Should Use in 2026"
+
+          cat <<EOF > $folder/index.html
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <title>$title | Minds Of Brands</title>
+          <meta name="description" content="Discover powerful free tools to grow your business in 2026.">
+          </head>
+          <body style="font-family:Arial; max-width:800px; margin:auto;">
+
+          <h1>$title</h1>
+
+          <p><strong>What if you could grow your business faster without spending money?</strong></p>
+
+               <p>In 2026, smart businesses are using free tools to automate marketing, design, and growth.</p>
+
+               <h2>Top Tools You Should Use</h2>
+
+          <ul>
+             <li>ChatGPT – Content creation</li>
+             <li>Canva – Design</li>
+           <li>Notion – Workflow</li>
+           <li>Grammarly – Writing</li>
+              <li>Ubersuggest – SEO</li>
+            </ul>
+
+              <h2>How to Use Them</h2>
+                 <p>Combine these tools to build a complete marketing system without hiring a big team.</p>
+
+                   <h2>Conclusion</h2>
+               <p>Using the right tools can help you scale faster and smarter.</p>
+
+                   <h2>FAQs</h2>
+                   <h3>Are these tools free?</h3>
+                  <p>Yes, most offer free plans.</p>
+
+                 <h3>Can beginners use them?</h3>
+                     <p>Absolutely, they are beginner-friendly.</p>
+
+                </body>
+                </html>
+                EOF
       - name: Commit & Push
         run: |
           git config --global user.name "auto-bot"
