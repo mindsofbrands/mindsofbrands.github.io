@@ -36,45 +36,43 @@ jobs:
                    mkdir -p $folder
 
                  cat <<EOF > $folder/index.html
-                <!DOCTYPE html>
-            <html>
-            <head>
-          <title>$title | Minds Of Brands</title>
-            <meta name="description" content="Learn $topic and grow your business with powerful strategies.">
-            </head>
-             <body style="font-family:Arial; max-width:800px; margin:auto;">
+                  <!DOCTYPE html>
+                  <html lang="en">
+                  <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>$title</title>
 
-                <h1>$title</h1>
+                  <meta name="description" content="Explore $title and discover powerful digital marketing strategies, tools, and insights to grow your business online.">
+                  </head>
 
-                   <p><strong>Want to grow faster in 2026?</strong></p>
+                  <body style="font-family: Arial; background:#000; color:#fff; padding:40px; max-width:800px; margin:auto;">
 
-           <p>This guide on $topic will help you understand how to scale your business using modern strategies.</p>
+                  <h1>$title</h1>
 
-                 <h2>Top Tools to Use</h2>
-                 <ul>
-            <li>$tool1</li>
-          <li>$tool2</li>
-           <li>$tool3</li>
-           </ul>
+                  <p>This blog explores <strong>$topic</strong> and how it helps businesses grow using smart digital marketing strategies.</p>
 
-           <h2>How to Apply This</h2>
-           <p>Start small, test strategies, and scale using these tools.</p>
+                  <h2>🚀 Top Tools You Should Know</h2>
+                  <ul>
+                  <li>$tool1</li>
+                  <li>$tool2</li>
+                  <li>$tool3</li>
+                  </ul>
 
-              <h2>Conclusion</h2>
-                <p>$topic is one of the biggest opportunities right now. Start early and stay consistent.</p>
-                
-                       <h2>FAQs</h2>
-                <h3>Is this beginner friendly?</h3>
-              <p>Yes, anyone can start with basic knowledge.</p>
+                 <h2>📈 Why This Matters</h2>
+                 <p>Using the right tools and strategies can significantly improve your business performance, brand visibility, and customer engagement.</p>
 
-                  <h3>Do I need investment?</h3>
-                        <p>No, many tools are free.</p>
+                 <h2>✅ Conclusion</h2>
+                 <p>Start implementing these tools today and stay ahead in the digital marketing game.</p>
 
-                         </body>
-                        </html>
-                         EOF
-                        </html>
-                           EOF
+                 <hr style="margin:40px 0;">
+
+                 <h2>🔥 Related Blogs</h2>
+                 <p><a href="/blog/" style="color:#0ff;">👉 Explore More Blogs</a></p>
+
+                 </body>
+                 </html>
+                 EOF
       - name: Commit & Push
         run: |
           git config --global user.name "auto-bot"
