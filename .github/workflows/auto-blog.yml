@@ -1,1 +1,27 @@
+name: Auto Blog Generator
 
+on:
+  schedule:
+    - cron: '0 */48 * * *'  # runs every 48 hours
+  workflow_dispatch:       # manual run button
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Generate Blog
+        run: |
+          mkdir -p blog/auto-post-$(date +%s)
+          echo "<h1>Auto Blog Test</h1><p>This is auto generated.</p>" > blog/auto-post-$(date +%s)/index.html
+
+      - name: Commit & Push
+        run: |
+          git config --global user.name "auto-bot"
+          git config --global user.email "auto@bot.com"
+          git add .
+          git commit -m "Auto blog generated"
+          git push
