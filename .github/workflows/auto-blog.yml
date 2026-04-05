@@ -2,6 +2,8 @@ name: Auto Blog Generator
 
 on:
   workflow_dispatch:
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -9,7 +11,9 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+            persist-credentials: true
 
       - name: Generate Blog
         run: |
