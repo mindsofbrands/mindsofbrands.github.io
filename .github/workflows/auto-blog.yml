@@ -14,13 +14,12 @@ jobs:
       - name: Generate Blog
         run: |
           mkdir -p blog/test-blog
-
-          echo "<html><body><h1>Test Blog Working</h1></body></html>" > blog/test-blog/index.html
+          echo "<h1>It Works</h1>" > blog/test-blog/index.html
 
       - name: Commit & Push
         run: |
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
           git add .
-          git commit -m "Test blog created" || echo "No changes"
+          git commit -m "Test blog" || echo "No changes"
           git push
