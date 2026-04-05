@@ -1,8 +1,6 @@
 name: Auto Blog Generator
 
 on:
-  schedule:
-    - cron: '0 0 * * 1,3,5'
   workflow_dispatch:
 
 jobs:
@@ -15,32 +13,14 @@ jobs:
 
       - name: Generate Blog
         run: |
-          topics=("AI Tools for Startups" "Instagram Marketing Strategies" "Best Free Tools for Business Growth" "How to Start an Online Business" "Digital Marketing Trends 2026")
-          tools=("ChatGPT" "Canva" "Notion" "Grammarly" "Ubersuggest" "Pictory")
+          mkdir -p blog/test-blog
 
-          topic=$(printf "%s\n" "${topics[@]}" | shuf -n 1)
-          tool1=$(printf "%s\n" "${tools[@]}" | shuf -n 1)
-          tool2=$(printf "%s\n" "${tools[@]}" | shuf -n 1)
-          tool3=$(printf "%s\n" "${tools[@]}" | shuf -n 1)
+          echo "<html><body><h1>Test Blog Working</h1></body></html>" > blog/test-blog/index.html
 
-          title="Top Strategies for $topic in 2026"
-          slug=$(echo "$topic" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
-          folder="blog/$slug-$(date +%s)"
-
-          mkdir -p "$folder"
-
-          echo "<!DOCTYPE html>" > "$folder/index.html"
-          echo "<html><head><title>$title</title></head><body>" >> "$folder/index.html"
-          echo "<h1>$title</h1>" >> "$folder/index.html"
-          echo "<p>Topic: $topic</p>" >> "$folder/index.html"
-          echo "<ul><li>$tool1</li><li>$tool2</li><li>$tool3</li></ul>" >> "$folder/index.html"
-          echo "<a href='/blog/'>Back to Blogs</a>" >> "$folder/index.html"
-          echo "</body></html>" >> "$folder/index.html"
-          
       - name: Commit & Push
         run: |
           git config --global user.name "auto-bot"
           git config --global user.email "auto@bot.com"
           git add .
-          git commit -m "Auto blog generated" || echo "No changes"
+          git commit -m "Test blog created" || echo "No changes"
           git push
