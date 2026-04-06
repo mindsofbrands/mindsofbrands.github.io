@@ -19,69 +19,39 @@ jobs:
       - name: Generate Blog
         run: |
           topics=("AI Tools for Startups" "Instagram Marketing Strategies" "Business Growth Strategies" "Digital Marketing Trends 2026" "Lead Generation Tips")
-
-          topic=$(printf "%s\n" "${topics[@]}" | shuf -n 1)
-
-          title="Ultimate Guide to $topic"
-          slug=$(echo "$topic" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
-          folder="blog/$slug-$(date +%s)"
+      
+          for topic in "${topics[@]:0:3}"
+          do
+            title="Ultimate Guide to $topic"
+            slug=$(echo "$topic" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+            folder="blog/$slug-$(date +%s)"
 
           mkdir -p "$folder"
-
+    
           echo "<!DOCTYPE html>" > "$folder/index.html"
           echo "<html><head><title>$title</title>" >> "$folder/index.html"
           echo "<meta name='description' content='Learn $topic with proven strategies to grow your business online.'>" >> "$folder/index.html"
           echo "</head><body style='font-family:Arial;max-width:800px;margin:auto;padding:40px;'>" >> "$folder/index.html"
-
+    
           echo "<h1>$title</h1>" >> "$folder/index.html"
 
-          echo "<p>$topic is transforming how businesses grow online. In this blog, we will explore strategies, tools, and insights to help you stay ahead.</p>" >> "$folder/index.html"
-
+          echo "<p>$topic is one of the most important trends in modern business. Companies are using it to grow faster and smarter.</p>" >> "$folder/index.html"
+    
           echo "<h2>Why $topic Matters</h2>" >> "$folder/index.html"
-          echo "<p>Businesses today need strong digital presence. $topic helps improve visibility, engagement, and conversions.</p>" >> "$folder/index.html"
-
+          echo "<p>$topic helps businesses improve visibility, attract customers, and increase conversions.</p>" >> "$folder/index.html"
+    
           echo "<h2>Top Strategies</h2>" >> "$folder/index.html"
           echo "<ul>" >> "$folder/index.html"
-          echo "<li>Use data-driven marketing</li>" >> "$folder/index.html"
-          echo "<li>Focus on customer engagement</li>" >> "$folder/index.html"
-          echo "<li>Leverage automation tools</li>" >> "$folder/index.html"
+          echo "<li>Focus on customer needs</li>" >> "$folder/index.html"
+          echo "<li>Use automation tools</li>" >> "$folder/index.html"
+          echo "<li>Track performance regularly</li>" >> "$folder/index.html"
           echo "</ul>" >> "$folder/index.html"
-
-          echo "<h2>Best Tools</h2>" >> "$folder/index.html"
-          echo "<ul>" >> "$folder/index.html"
-          echo "<li>ChatGPT</li>" >> "$folder/index.html"
-          echo "<li>Canva</li>" >> "$folder/index.html"
-          echo "<li>Notion</li>" >> "$folder/index.html"
-          echo "</ul>" >> "$folder/index.html"
-
+    
           echo "<h2>Conclusion</h2>" >> "$folder/index.html"
-          echo "<p>Start implementing these strategies today to grow your business and stay ahead in the digital world.</p>" >> "$folder/index.html"
+          echo "<p>Start applying these strategies today and build a strong digital presence.</p>" >> "$folder/index.html"
 
           echo "<br><a href='/blog/'>← Back to Blogs</a>" >> "$folder/index.html"
-
           echo "</body></html>" >> "$folder/index.html"
-
-      - name: Commit & Push
-        run: |
-          git config --global user.name "auto-bot"
-          git config --global user.email "auto@bot.com"
-          git add .
-          git commit -m "New blog generated" || echo "No changes"
-          git push
-          # Create / Update Blog Listing Page
-
-          echo "<!DOCTYPE html>" > blog/index.html
-          echo "<html><head><title>Blogs</title></head><body style='font-family:Arial;padding:40px'>" >> blog/index.html
-          echo "<h1>Our Blogs</h1>" >> blog/index.html
-          
-          for dir in blog/*/; do
-          name=$(basename "$dir")
-          title=$(echo "$name" | tr '-' ' ')
-        
-          echo "<div style='margin-bottom:20px'>" >> blog/index.html
-          echo "<h2>$title</h2>" >> blog/index.html
-          echo "<a href='/$dir'>Read More</a>" >> blog/index.html
-          echo "</div>" >> blog/index.html
+    
+          sleep 1
           done
-
-          echo "</body></html>" >> blog/index.html
