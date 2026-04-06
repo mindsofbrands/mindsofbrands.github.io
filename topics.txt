@@ -1,0 +1,250 @@
+# topics.txt — Minds Of Brands Blog Topics
+# Add one topic per line. The generator picks one randomly each run.
+# Topics that already have a blog post are skipped automatically.
+# Lines starting with # are ignored.
+
+AI Tools for Startups
+Instagram Marketing Strategies
+Business Growth Strategies
+Digital Marketing Trends 2026
+Lead Generation Tips
+Email Marketing Best Practices
+SEO for Small Businesses in India
+Content Marketing Strategy for Startups
+Social Media ROI Measurement
+Personal Branding for Entrepreneurs
+WhatsApp Marketing for Businesses
+Google Ads vs Facebook Ads India
+Video Marketing on a Budget
+CRM Tools for Growing Businesses
+Local SEO Strategies for Indian Businesses
+LinkedIn Marketing for B2B
+Influencer Marketing on a Small Budget
+Landing Page Optimization Tips
+How to Generate Leads Without Ads
+Building a Brand Identity from Scratch
+SEO Basics for Beginners
+Local SEO Growth Hacks
+AI in SEO Optimization
+Keyword Research Made Easy
+Blogging for Passive Income
+Zero-Click Search Strategy
+Voice Search SEO Trends
+Technical SEO Simplified
+Content Clusters Strategy
+SEO vs Paid Ads ROI
+Instagram Growth Without Ads
+Viral Reels Strategy 2026
+LinkedIn Lead Generation Hacks
+Facebook Ads for Beginners
+Social Media Automation Tools
+Hashtag Strategy That Works
+Personal Branding on Instagram
+Twitter Growth Playbook
+Social Selling Techniques
+Building Audience from Scratch
+Earn Money with Blogging
+Freelancing for Beginners
+Selling Digital Products
+Passive Income Ideas 2026
+Earn via Remote Jobs
+Monetizing Skills Online
+Print-on-Demand Business
+Dropshipping Starter Guide
+Online Courses Selling Guide
+Earn with Microtasks
+Start Shopify Store Guide
+E-commerce SEO Tips
+Conversion Rate Optimization
+Product Page Optimization
+Amazon FBA for Beginners
+Flipkart Seller Strategy
+Niche Product Research
+High-Ticket Dropshipping
+Customer Retention Strategies
+Cart Abandonment Fix
+Affiliate Marketing Basics
+Best Affiliate Programs 2026
+Amazon Affiliate Strategy
+High-Converting Funnels
+Affiliate Blogging Tips
+Email Funnels for Affiliate
+Affiliate via Instagram
+YouTube Affiliate Strategy
+CPA Marketing Guide
+Passive Affiliate Income
+Become an Influencer Fast
+Micro-Influencer Strategy
+Brand Collaboration Guide
+Monetizing Instagram Page
+YouTube Growth Blueprint
+Shorts Monetization Strategy
+Creator Economy Trends
+Build Personal Brand Online
+Influencer Outreach Strategy
+Earn via UGC Content
+Start a Podcast Easily
+Podcast Monetization Ideas
+Video Content Strategy
+Content Repurposing Hacks
+Script Writing for Reels
+Storytelling in Marketing
+Build Authority with Content
+YouTube Automation Channels
+Faceless Content Strategy
+Content Calendar Planning
+Best AI Tools for Marketing
+AI Content Creation Hacks
+Chatbots for Lead Generation
+AI for Social Media Growth
+Automate Business with AI
+AI Video Creation Tools
+AI SEO Tools Guide
+No-Code Automation Tools
+AI for Email Marketing
+AI Side Hustles Guide
+Email Marketing Basics
+Build Email List Fast
+Lead Magnet Ideas
+High-Converting Email Copy
+Cold Email Strategy
+CRM for Small Business
+Sales Funnel Explained
+Landing Page Optimization
+WhatsApp Marketing Strategy
+Retargeting Ads Guide
+Web 3.0 Explained Simply
+Earn with Cryptocurrency
+Bitcoin Investment Basics
+NFT Business Ideas
+Metaverse Marketing Guide
+Blockchain for Beginners
+Crypto Trading Basics
+Web 3.0 Income Opportunities
+Future of Digital Marketing
+Decentralized Apps (DApps) Guide
+Performance Marketing (ROI-driven ads)
+Google Ads (Search, Display, YouTube Ads)
+Conversion Copywriting
+Landing Page Psychology
+SaaS Marketing
+Mobile App Marketing (ASO)
+Marketplace Marketing (Zomato, Uber, etc.)
+Local Business Marketing (very high ROI niche)
+Reputation Management (reviews, ratings)
+Marketing Analytics & Data Tracking
+Growth Hacking Strategies
+Viral Marketing Psychology
+Neuromarketing (buyer behavior science)
+Community Building (Discord, Telegram)
+Subscription Business Models
+Digital Products (Notion, templates, assets)
+Selling Services Online (agency scaling)
+B2B Marketing Strategies
+Cold Outreach Systems
+Automation Funnels (Zapier-style workflows)
+Personal Branding for Founders
+Digital PR & Media Coverage
+Online Event/Webinar Marketing
+Mobile-first marketing strategies
+Voice & Visual search (future trends deeper)
+Performance Marketing Basics
+Google Ads for Beginners
+YouTube Ads Strategy
+Display Ads Optimization
+Retargeting Ads Secrets
+PPC Campaign Setup Guide
+Ad Copy That Converts
+Budget Scaling in Ads
+ROAS Optimization Tips
+Paid Traffic vs Organic
+Copywriting That Sells
+Emotional Marketing Triggers
+Scarcity Marketing Strategy
+Persuasive Sales Writing
+CTA Optimization Tricks
+Storytelling for Conversions
+Psychology Behind Buying
+High-Converting Headlines
+AIDA Model Explained
+Neuromarketing Basics
+Google Analytics Basics
+Conversion Tracking Setup
+Marketing Data Analysis
+Funnel Tracking Strategy
+KPI Metrics That Matter
+Heatmap Tools Guide
+User Behavior Analysis
+Attribution Models Explained
+Data-Driven Marketing
+Marketing Dashboards Setup
+App Store Optimization (ASO)
+Mobile Marketing Strategy
+Push Notification Marketing
+App Retention Strategies
+In-App Monetization Ideas
+Mobile Ads Optimization
+Growth of Mobile Commerce
+SMS Marketing Strategy
+Mobile UX for Conversions
+App Launch Marketing Plan
+Local Business Marketing Guide
+Google My Business Optimization
+Local Lead Generation Tips
+Hyperlocal Marketing Strategy
+Local SEO Ranking Tricks
+Customer Reviews Strategy
+Small Business Branding
+Offline to Online Marketing
+Geo-Targeting Ads Guide
+Local Influencer Marketing
+B2B Marketing Strategy
+Lead Generation for Agencies
+Client Acquisition Systems
+Cold Outreach Framework
+LinkedIn B2B Funnels
+Proposal Writing That Wins
+Scaling a Marketing Agency
+High-Ticket Client Strategy
+Service Packaging Ideas
+Retainer Clients Strategy
+Sell Notion Templates Online
+SaaS Marketing Strategy
+Subscription Business Model
+Digital Asset Selling
+Build and Sell Templates
+Pricing Strategy for SaaS
+Free Trial Conversion Tips
+Product-Led Growth Strategy
+SaaS Funnel Optimization
+Online Tool Monetization
+Build Online Communities
+Telegram Marketing Strategy
+Discord Growth Hacks
+Brand Loyalty Building
+Community Monetization Ideas
+Personal Brand Authority
+Founder Branding Strategy
+Online Tribe Building
+Brand Story Development
+Social Proof Strategy
+Digital PR Strategy
+Get Featured in Media
+Online Reputation Management
+Crisis Management Online
+Webinar Marketing Strategy
+Virtual Events Promotion
+Authority Marketing Strategy
+Podcast Guest Strategy
+Thought Leadership Content
+Public Speaking for Growth
+Voice Search Marketing
+Visual Search Optimization
+AI Search Optimization
+Future of Cookieless Marketing
+Privacy-First Marketing
+AR/VR Marketing Strategy
+Metaverse Branding Ideas
+Digital Identity in Web3
+Creator-Owned Platforms
+Future Income Streams Online
