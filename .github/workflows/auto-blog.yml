@@ -2,97 +2,43 @@ name: Auto Blog Generator
 
 on:
   workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Blog topic (leave empty for auto-pick from topics.txt)'
+        required: false
+        default: ''
+  schedule:
+    - cron: '0 9 * * 1'   # Every Monday 9am UTC — remove this line to disable auto-posting
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  generate-blog:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Generate Blog
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate Blog Post
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MANUAL_TOPIC: ${{ github.event.inputs.topic }}
+        run: python generate_blog.py
+
+      - name: Commit and Push
         run: |
-          topics=("AI Tools for Startups" "Instagram Marketing Strategies" "Business Growth Strategies" "Digital Marketing Trends 2026" "Lead Generation Tips")
-      
-          topic=$(printf "%s\n" "${topics[@]}" | shuf -n 1)
-      
-          title="Ultimate Guide to $topic"
-          slug=$(echo "$topic" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
-          folder="blog/$slug-$(date +%s)"
-      
-          mkdir -p "$folder"
-
-          intros=(
-            "$topic is transforming how brands grow online."
-            "Businesses today rely heavily on $topic to scale faster."
-            "$topic is one of the most powerful strategies in digital growth."
-          )
-
-          points=(
-            "It helps attract the right audience."
-            "It improves brand visibility online."
-            "It increases conversions and engagement."
-          )
-
-          intro=$(printf "%s\n" "${intros[@]}" | shuf -n 1)
-          p1=$(printf "%s\n" "${points[@]}" | shuf -n 1)
-          p2=$(printf "%s\n" "${points[@]}" | shuf -n 1)
-
-          cat <<EOF > "$folder/index.html"
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <title>$title</title>
-            <meta name="description" content="Learn $topic with actionable strategies to grow your business.">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          
-            <style>
-              body { font-family: Arial; margin: 0; padding: 0; }
-              header, footer { background: #111; color: white; padding: 15px; text-align: center; }
-              .container { max-width: 800px; margin: auto; padding: 40px; }
-              h1 { font-size: 32px; }
-              h2 { margin-top: 30px; }
-              a { color: blue; }
-            </style>
-          </head>
-          
-          <body>
-          
-          <header>
-            <h2>Minds Of Brands</h2>
-          </header>
-          
-          <div class="container">
-          
-            <h1>$title</h1>
-          
-            <p>$intro</p>
-          
-            <h2>Why $topic Matters</h2>
-            <p>$p1 $p2</p>
-          
-            <h2>Top Strategies</h2>
-            <ul>
-              <li>Focus on your target audience</li>
-              <li>Use automation tools</li>
-              <li>Track performance regularly</li>
-            </ul>
-          
-            <h2>Conclusion</h2>
-            <p>Apply these strategies to grow your brand faster in the digital space.</p>
-          
-            <br><a href="/blog/">← Back to Blogs</a>
-          
-          </div>
-          
-          <footer>
-            <p>© 2026 Minds Of Brands</p>
-          </footer>
-          
-          </body>
-          </html>
-          EOF
+          git config user.name "Minds Of Brands Bot"
+          git config user.email "bot@mindsofbrands.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Auto blog: $(date +'%Y-%m-%d')"
+          git push
