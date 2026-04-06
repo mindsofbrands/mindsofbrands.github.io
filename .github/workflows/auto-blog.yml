@@ -7,7 +7,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: '0 9 * * 1'   # Every Monday 9am UTC
 
 permissions:
   contents: write
@@ -28,23 +28,9 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Debug - Check secret exists
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          if [ -z "$GEMINI_API_KEY" ]; then
-            echo "❌ GEMINI_API_KEY is EMPTY - secret not reaching workflow"
-            echo "Go to: Settings → Secrets and variables → Actions"
-            echo "Make sure secret name is exactly: GEMINI_API_KEY"
-            exit 1
-          else
-            KEY_LEN=${#GEMINI_API_KEY}
-            echo "✅ GEMINI_API_KEY is SET (length: $KEY_LEN chars)"
-          fi
-
       - name: Generate Blog Post
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           MANUAL_TOPIC: ${{ github.event.inputs.topic }}
         run: python generate_blog.py
 
