@@ -24,7 +24,287 @@ SITEMAP_FILE   = "sitemap.xml"
 TOPICS_FILE    = "topics.txt"
 
 GROQ_API_URL   = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODEL     = "llama-3.3-70b-versatile"   # Free, fast, high quality
+GROQ_MODEL     = "llama-3.3-70b-versatile"
+
+# ─── EXACT SITE HEADER & FOOTER ───────────────────────────────────────────────
+# Matches mindsofbrands.com exactly — same nav links, same style, same footer
+
+SITE_HEADER = """<header>
+  <div class="header-inner">
+    <a class="logo" href="/">Minds Of Brands</a>
+    <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/product/">Product</a>
+      <a href="/about/">About Us</a>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/blog/" class="active">Blogs</a>
+      <a href="/contactus/">Contact</a>
+    </nav>
+  </div>
+</header>"""
+
+SITE_FOOTER = """<footer>
+  <p>© 2025 Minds Of Brands. All rights reserved.</p>
+  <p class="footer-links">
+    <a href="/">Home</a> |
+    <a href="/services/">Services</a> |
+    <a href="/product/">Product</a> |
+    <a href="/about/">About Us</a> |
+    <a href="/portfolio/">Portfolio</a> |
+    <a href="/blog/">Blogs</a> |
+    <a href="/contactus/">Contact</a>
+  </p>
+</footer>"""
+
+SITE_CSS = """
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Base ── */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* ── Header — matches mindsofbrands.com exactly ── */
+    header {
+      background: #000;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo {
+      color: #fff;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      white-space: nowrap;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: color .2s, background .2s;
+    }
+    nav a:hover, nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,.08);
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #fff;
+      padding: 64px 24px 52px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 700;
+      max-width: 820px;
+      margin: 0 auto 16px;
+      line-height: 1.2;
+    }
+    .hero .meta {
+      font-size: 14px;
+      color: #999;
+    }
+
+    /* ── Article body ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 52px 24px 72px;
+    }
+    .container h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 40px 0 14px;
+      color: #111;
+      border-left: 4px solid #e33;
+      padding-left: 14px;
+    }
+    .container p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* ── Tags ── */
+    .tags { margin: 36px 0 0; }
+    .tag {
+      display: inline-block;
+      background: #f2f2f2;
+      color: #555;
+      font-size: 12px;
+      padding: 4px 11px;
+      border-radius: 20px;
+      margin: 4px 4px 0 0;
+    }
+
+    /* ── CTA box ── */
+    .cta-box {
+      background: #fafafa;
+      border-left: 4px solid #e33;
+      padding: 24px 28px;
+      margin: 44px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .cta-box p { margin-bottom: 14px; font-weight: 500; font-size: 16px; }
+    .cta-box a {
+      display: inline-block;
+      background: #e33;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background .2s;
+    }
+    .cta-box a:hover { background: #c22; }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-block;
+      margin-top: 32px;
+      color: #e33;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* ── Footer — matches mindsofbrands.com exactly ── */
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+      line-height: 2;
+    }
+    .footer-links { margin-top: 6px; }
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      margin: 0 4px;
+    }
+    .footer-links a:hover { color: #fff; }
+
+    /* ── Mobile ── */
+    @media (max-width: 700px) {
+      .nav-toggle { display: block; }
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        padding: 12px 0;
+        border-top: 1px solid #222;
+      }
+      nav.open { display: flex; }
+      nav a { width: 100%; padding: 10px 24px; border-radius: 0; }
+    }
+"""
+
+BLOG_INDEX_CSS = """
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #222; }
+
+    header {
+      background: #000;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo { color: #fff; text-decoration: none; font-size: 22px; font-weight: 700; }
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a { color: #ccc; text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 4px; transition: color .2s, background .2s; }
+    nav a:hover, nav a.active { color: #fff; background: rgba(255,255,255,.08); }
+    .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 4px 8px; }
+
+    .hero { background: #000; color: #fff; padding: 52px 24px; text-align: center; }
+    .hero h1 { font-size: 38px; font-weight: 700; }
+    .hero p { color: #999; margin-top: 10px; font-size: 15px; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 52px 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+
+    .post-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 24px;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .post-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.09); transform: translateY(-2px); }
+    .post-card h2 { font-size: 18px; margin-bottom: 8px; line-height: 1.3; }
+    .post-card h2 a { color: #111; text-decoration: none; }
+    .post-card h2 a:hover { color: #e33; }
+    .post-date { font-size: 12px; color: #999; margin-bottom: 10px; }
+    .post-card p { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 16px; }
+    .read-more { color: #e33; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .read-more:hover { text-decoration: underline; }
+
+    footer { background: #111; color: #aaa; text-align: center; padding: 24px 20px; font-size: 13px; margin-top: 40px; line-height: 2; }
+    .footer-links { margin-top: 6px; }
+    .footer-links a { color: #aaa; text-decoration: none; margin: 0 4px; }
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 700px) {
+      .nav-toggle { display: block; }
+      nav { display: none; flex-direction: column; align-items: flex-start; gap: 0; background: #000; position: absolute; top: 60px; left: 0; right: 0; padding: 12px 0; border-top: 1px solid #222; }
+      nav.open { display: flex; }
+      nav a { width: 100%; padding: 10px 24px; border-radius: 0; }
+      .hero h1 { font-size: 28px; }
+    }
+"""
 
 # ─── TOPIC SELECTION ──────────────────────────────────────────────────────────
 
@@ -47,7 +327,6 @@ DEFAULT_TOPICS = [
 ]
 
 def pick_topic():
-    """Use manual input → topics.txt → default list (avoids repeats)."""
     manual = os.environ.get("MANUAL_TOPIC", "").strip()
     if manual:
         print(f"Using manually specified topic: {manual}")
@@ -60,7 +339,6 @@ def pick_topic():
     else:
         topics = DEFAULT_TOPICS
 
-    # Avoid repeating topics that already have blog folders
     used_slugs = set()
     blog_path = Path(BLOG_DIR)
     if blog_path.exists():
@@ -91,7 +369,6 @@ def iso_date():
 # ─── AI CONTENT GENERATION ────────────────────────────────────────────────────
 
 def call_groq(prompt, api_key):
-    """Call Groq API (free tier) and return text."""
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
@@ -103,10 +380,7 @@ def call_groq(prompt, api_key):
                 "role": "system",
                 "content": "You are a professional digital marketing content writer. Always respond with valid JSON only — no markdown, no code fences, no extra text before or after the JSON."
             },
-            {
-                "role": "user",
-                "content": prompt
-            }
+            {"role": "user", "content": prompt}
         ],
         "temperature": 0.8,
         "max_tokens": 2048,
@@ -118,7 +392,6 @@ def call_groq(prompt, api_key):
     return data["choices"][0]["message"]["content"].strip()
 
 def generate_blog_content(topic, api_key):
-    """Generate full blog post content via Groq."""
     prompt = f"""Write a detailed, SEO-optimized blog post for "Minds Of Brands", a digital marketing agency in India.
 
 Topic: "{topic}"
@@ -149,7 +422,6 @@ Return ONLY a valid JSON object with exactly these keys:
     print("Calling Groq API...")
     raw = call_groq(prompt, api_key)
 
-    # Strip any accidental markdown code fences
     raw = re.sub(r'^```(?:json)?\s*', '', raw.strip(), flags=re.MULTILINE)
     raw = re.sub(r'\s*```$', '', raw.strip(), flags=re.MULTILINE)
     raw = raw.strip()
@@ -160,26 +432,16 @@ Return ONLY a valid JSON object with exactly these keys:
         return data
     except json.JSONDecodeError as e:
         print(f"JSON parse error: {e}\nRaw output:\n{raw[:500]}")
-        # Fallback structure
         return {
             "title": f"Ultimate Guide to {topic}",
             "meta_description": f"Learn everything about {topic} with actionable strategies for business growth in India.",
-            "intro": f"{topic} is transforming the way businesses grow online. In this guide, we explore the most effective strategies you can apply today to see real results.",
+            "intro": f"{topic} is transforming the way businesses grow online. In this guide, we cover the most effective strategies you can apply today.",
             "sections": [
-                {
-                    "heading": f"Why {topic} Matters for Your Business",
-                    "content": f"{topic} helps businesses attract the right audience, improve brand visibility, and increase conversions. Companies that invest in {topic} consistently see measurable results within months.\n\nWhether you're a startup or an established business, understanding {topic} gives you a competitive edge in today's digital-first marketplace."
-                },
-                {
-                    "heading": "Key Strategies to Get Started",
-                    "content": "Start by defining your target audience clearly before launching any campaign. Use data-driven tools to track performance at every stage.\n\nConsistency is the single most important factor in long-term digital success. Set clear KPIs and review them monthly."
-                },
-                {
-                    "heading": "Common Mistakes to Avoid",
-                    "content": "Many businesses jump in without a clear strategy and end up wasting budget. Avoid spreading yourself too thin across every platform.\n\nFocus on 2-3 channels where your audience actually spends time, and master those before expanding."
-                },
+                {"heading": f"Why {topic} Matters", "content": f"{topic} helps businesses attract the right audience and increase conversions.\n\nCompanies that invest in {topic} see measurable results within months."},
+                {"heading": "Key Strategies to Get Started", "content": "Start by defining your target audience clearly. Use data-driven tools to track performance.\n\nConsistency is the most important factor in long-term success."},
+                {"heading": "Common Mistakes to Avoid", "content": "Many businesses jump in without a clear strategy. Focus on 2-3 channels where your audience actually spends time.\n\nTrack your ROI monthly and adjust accordingly."},
             ],
-            "conclusion": f"Ready to implement {topic} for your business? Minds Of Brands helps Indian businesses create strategies that deliver real, measurable results. Contact us today to get started.",
+            "conclusion": f"Ready to implement {topic} for your business? Minds Of Brands helps Indian businesses create strategies that deliver real results. Contact us today.",
             "tags": [topic, "digital marketing", "business growth", "India"]
         }
 
@@ -192,9 +454,7 @@ def build_sections_html(sections):
         content = sec.get("content", "")
         paragraphs = [p.strip() for p in content.split("\n") if p.strip()]
         para_html = "\n      ".join(f"<p>{p}</p>" for p in paragraphs)
-        html += f"""
-    <h2>{heading}</h2>
-      {para_html}"""
+        html += f"\n    <h2>{heading}</h2>\n      {para_html}"
     return html
 
 def build_post_html(topic, slug, content):
@@ -218,15 +478,11 @@ def build_post_html(topic, slug, content):
   <meta name="description" content="{meta_desc}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{canonical_url}">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{meta_desc}">
   <meta property="og:url" content="{canonical_url}">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="{SITE_NAME}">
-
-  <!-- Schema.org -->
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -240,76 +496,11 @@ def build_post_html(topic, slug, content):
     "publisher": {{"@type": "Organization", "name": "{SITE_NAME}", "url": "{SITE_URL}"}}
   }}
   </script>
-
-  <style>
-    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{
-      font-family: 'Segoe UI', Arial, sans-serif;
-      color: #222;
-      background: #fff;
-      line-height: 1.7;
-    }}
-    header {{
-      background: #111;
-      color: #fff;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }}
-    header a {{ color: #fff; text-decoration: none; font-size: 20px; font-weight: 700; letter-spacing: .5px; }}
-    nav a {{ color: #ccc; text-decoration: none; font-size: 14px; margin-left: 20px; }}
-    nav a:hover {{ color: #fff; }}
-    .hero {{
-      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
-      color: #fff;
-      padding: 60px 24px 50px;
-      text-align: center;
-    }}
-    .hero h1 {{ font-size: clamp(24px, 4vw, 40px); font-weight: 700; max-width: 800px; margin: 0 auto 16px; line-height: 1.25; }}
-    .hero .meta {{ font-size: 14px; color: #aaa; }}
-    .container {{ max-width: 820px; margin: 0 auto; padding: 48px 24px 64px; }}
-    .container h2 {{ font-size: 24px; font-weight: 700; margin: 36px 0 14px; color: #111; border-left: 4px solid #e63; padding-left: 14px; }}
-    .container p {{ font-size: 16px; margin-bottom: 18px; color: #333; }}
-    .tags {{ margin: 32px 0 0; }}
-    .tag {{
-      display: inline-block; background: #f0f0f0; color: #555;
-      font-size: 12px; padding: 4px 10px; border-radius: 20px; margin: 4px 4px 0 0;
-    }}
-    .cta-box {{
-      background: #f7f7f7; border-left: 4px solid #e63;
-      padding: 24px 28px; margin: 40px 0; border-radius: 0 8px 8px 0;
-    }}
-    .cta-box p {{ margin-bottom: 12px; font-weight: 500; }}
-    .cta-box a {{
-      display: inline-block; background: #e63; color: #fff;
-      padding: 10px 22px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600;
-    }}
-    .cta-box a:hover {{ background: #c52; }}
-    .back-link {{ display: inline-block; margin-top: 32px; color: #e63; text-decoration: none; font-size: 14px; }}
-    .back-link:hover {{ text-decoration: underline; }}
-    footer {{
-      background: #111; color: #888; text-align: center;
-      padding: 20px; font-size: 13px;
-    }}
-    footer a {{ color: #aaa; text-decoration: none; margin: 0 10px; }}
-    @media (max-width: 600px) {{
-      header {{ flex-direction: column; gap: 10px; }}
-      nav a {{ margin: 0 8px; }}
-    }}
-  </style>
+  <style>{SITE_CSS}</style>
 </head>
 <body>
 
-<header>
-  <a href="/">{SITE_NAME}</a>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/services/">Services</a>
-    <a href="/blog/">Blogs</a>
-    <a href="/contactus/">Contact</a>
-  </nav>
-</header>
+{SITE_HEADER}
 
 <div class="hero">
   <h1>{title}</h1>
@@ -317,33 +508,19 @@ def build_post_html(topic, slug, content):
 </div>
 
 <div class="container">
-
   <p>{intro}</p>
   {sections_html}
-
   <h2>Conclusion</h2>
   <p>{conclusion}</p>
-
   <div class="cta-box">
     <p>Ready to grow your brand with expert digital marketing?</p>
     <a href="/contactus/">Talk to Minds Of Brands →</a>
   </div>
-
   <div class="tags">{tags_html}</div>
-
   <a class="back-link" href="/blog/">← Back to All Blogs</a>
-
 </div>
 
-<footer>
-  <p>© 2026 {SITE_NAME}. All rights reserved.</p>
-  <p style="margin-top:8px">
-    <a href="/">Home</a>
-    <a href="/services/">Services</a>
-    <a href="/blog/">Blogs</a>
-    <a href="/contactus/">Contact</a>
-  </p>
-</footer>
+{SITE_FOOTER}
 
 </body>
 </html>
@@ -352,7 +529,6 @@ def build_post_html(topic, slug, content):
 # ─── BLOG INDEX REGENERATOR ───────────────────────────────────────────────────
 
 def regenerate_blog_index():
-    """Scan all blog folders and rebuild blog/index.html."""
     blog_path = Path(BLOG_DIR)
     posts = []
 
@@ -362,10 +538,9 @@ def regenerate_blog_index():
             continue
 
         html = post_file.read_text(encoding="utf-8")
-
         title_match = re.search(r'<title>(.*?)\s*\|', html)
         desc_match  = re.search(r'<meta name="description" content="(.*?)"', html)
-        date_match  = re.search(r'<p class="meta">.*?(\w+ \d+, \d{4})', html)
+        date_match  = re.search(r'class="meta">.*?(\w+ \d+, \d{4})', html)
 
         title = title_match.group(1).strip() if title_match else folder.name.replace("-", " ").title()
         desc  = desc_match.group(1).strip()  if desc_match  else "Read this post on our blog."
@@ -375,77 +550,66 @@ def regenerate_blog_index():
 
     cards_html = ""
     for p in posts:
+        date_html = f'<p class="post-date">{p["date"]}</p>' if p["date"] else ""
         cards_html += f"""
-    <div class="post-card">
-      <h2><a href="/blog/{p['slug']}/">{p['title']}</a></h2>
-      {"<p class='post-date'>" + p['date'] + "</p>" if p['date'] else ""}
-      <p>{p['desc']}</p>
-      <a href="/blog/{p['slug']}/" class="read-more">Read More →</a>
-    </div>"""
+      <div class="post-card">
+        <h2><a href="/blog/{p['slug']}/">{p['title']}</a></h2>
+        {date_html}
+        <p>{p['desc']}</p>
+        <a href="/blog/{p['slug']}/" class="read-more">Read More →</a>
+      </div>"""
 
     index_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog | {SITE_NAME}</title>
-  <meta name="description" content="Digital marketing insights, SEO tips, and branding strategies from {SITE_NAME}.">
-  <style>
-    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #222; }}
-    header {{
-      background: #111; color: #fff; padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-    }}
-    header a {{ color: #fff; text-decoration: none; font-size: 20px; font-weight: 700; }}
-    nav a {{ color: #ccc; text-decoration: none; font-size: 14px; margin-left: 20px; }}
-    nav a:hover {{ color: #fff; }}
-    .hero {{ background: #111; color: #fff; padding: 50px 24px; text-align: center; }}
-    .hero h1 {{ font-size: 36px; font-weight: 700; }}
-    .hero p {{ color: #aaa; margin-top: 10px; }}
-    .container {{ max-width: 900px; margin: 0 auto; padding: 48px 24px; }}
-    .post-card {{
-      border: 1px solid #eee; border-radius: 10px;
-      padding: 24px 28px; margin-bottom: 24px;
-      transition: box-shadow .2s;
-    }}
-    .post-card:hover {{ box-shadow: 0 4px 20px rgba(0,0,0,.08); }}
-    .post-card h2 {{ font-size: 20px; margin-bottom: 8px; }}
-    .post-card h2 a {{ color: #111; text-decoration: none; }}
-    .post-card h2 a:hover {{ color: #e63; }}
-    .post-date {{ font-size: 13px; color: #999; margin-bottom: 8px; }}
-    .post-card p {{ font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 14px; }}
-    .read-more {{ color: #e63; text-decoration: none; font-size: 14px; font-weight: 600; }}
-    .read-more:hover {{ text-decoration: underline; }}
-    footer {{
-      background: #111; color: #888; text-align: center;
-      padding: 20px; font-size: 13px; margin-top: 40px;
-    }}
-    footer a {{ color: #aaa; text-decoration: none; margin: 0 10px; }}
-  </style>
+  <title>Our Blogs | {SITE_NAME}</title>
+  <meta name="description" content="Digital marketing insights, SEO tips, branding strategies and more from {SITE_NAME}.">
+  <style>{BLOG_INDEX_CSS}</style>
 </head>
 <body>
+
 <header>
-  <a href="/">{SITE_NAME}</a>
-  <nav>
-    <a href="/">Home</a><a href="/services/">Services</a>
-    <a href="/blog/">Blogs</a><a href="/contactus/">Contact</a>
-  </nav>
+  <div class="header-inner">
+    <a class="logo" href="/">Minds Of Brands</a>
+    <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/product/">Product</a>
+      <a href="/about/">About Us</a>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/blog/" class="active">Blogs</a>
+      <a href="/contactus/">Contact</a>
+    </nav>
+  </div>
 </header>
+
 <div class="hero">
   <h1>Our Blogs</h1>
   <p>Digital marketing insights to grow your business</p>
 </div>
+
 <div class="container">
-  {cards_html if cards_html else "<p>No blog posts yet. Check back soon!</p>"}
+  <div class="grid">
+    {cards_html if cards_html else "<p>No blog posts yet. Check back soon!</p>"}
+  </div>
 </div>
+
 <footer>
-  <p>© 2026 {SITE_NAME}. All rights reserved.</p>
-  <p style="margin-top:8px">
-    <a href="/">Home</a><a href="/services/">Services</a>
-    <a href="/blog/">Blogs</a><a href="/contactus/">Contact</a>
+  <p>© 2025 Minds Of Brands. All rights reserved.</p>
+  <p class="footer-links">
+    <a href="/">Home</a> |
+    <a href="/services/">Services</a> |
+    <a href="/product/">Product</a> |
+    <a href="/about/">About Us</a> |
+    <a href="/portfolio/">Portfolio</a> |
+    <a href="/blog/">Blogs</a> |
+    <a href="/contactus/">Contact</a>
   </p>
 </footer>
+
 </body>
 </html>"""
 
@@ -455,13 +619,14 @@ def regenerate_blog_index():
 # ─── SITEMAP GENERATOR ────────────────────────────────────────────────────────
 
 def regenerate_sitemap():
-    """Auto-rebuild sitemap.xml from all blog folders."""
     blog_path = Path(BLOG_DIR)
     urls = [
         f"  <url><loc>{SITE_URL}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>",
         f"  <url><loc>{SITE_URL}/blog/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>",
         f"  <url><loc>{SITE_URL}/services/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>",
         f"  <url><loc>{SITE_URL}/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>",
+        f"  <url><loc>{SITE_URL}/portfolio/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>",
+        f"  <url><loc>{SITE_URL}/product/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>",
         f"  <url><loc>{SITE_URL}/contactus/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>",
     ]
     if blog_path.exists():
