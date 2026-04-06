@@ -1,8 +1,8 @@
 """
 generate_blog.py
 Minds Of Brands — AI Blog Generator
-Uses Google Gemini API (FREE tier — no credit card needed)
-Get your free key at: https://aistudio.google.com/apikey
+Uses Groq API (FREE — no credit card, very generous limits)
+Get your free key at: https://console.groq.com
 """
 
 import os
@@ -23,10 +23,8 @@ BLOG_INDEX     = "blog/index.html"
 SITEMAP_FILE   = "sitemap.xml"
 TOPICS_FILE    = "topics.txt"
 
-GEMINI_API_URL = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-1.5-flash-latest:generateContent"
-)
+GROQ_API_URL   = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL     = "llama-3.3-70b-versatile"   # Free, fast, high quality
 
 # ─── TOPIC SELECTION ──────────────────────────────────────────────────────────
 
@@ -55,7 +53,6 @@ def pick_topic():
         print(f"Using manually specified topic: {manual}")
         return manual
 
-    # Load custom topics file if present
     if os.path.exists(TOPICS_FILE):
         with open(TOPICS_FILE, "r") as f:
             topics = [l.strip() for l in f if l.strip() and not l.startswith("#")]
@@ -79,7 +76,6 @@ def pick_topic():
 # ─── HELPERS ──────────────────────────────────────────────────────────────────
 
 def slugify(text):
-    """Convert topic to URL-safe slug."""
     text = text.lower().strip()
     text = re.sub(r'[^\w\s-]', '', text)
     text = re.sub(r'[\s_]+', '-', text)
@@ -94,38 +90,48 @@ def iso_date():
 
 # ─── AI CONTENT GENERATION ────────────────────────────────────────────────────
 
-def call_gemini(prompt, api_key):
-    """Call Gemini 1.5 Flash latest (free tier) and return text."""
-    url = f"{GEMINI_API_URL}?key={api_key}"
-    payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.8,
-            "maxOutputTokens": 2048,
-        }
+def call_groq(prompt, api_key):
+    """Call Groq API (free tier) and return text."""
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
     }
-    resp = requests.post(url, json=payload, timeout=60)
+    payload = {
+        "model": GROQ_MODEL,
+        "messages": [
+            {
+                "role": "system",
+                "content": "You are a professional digital marketing content writer. Always respond with valid JSON only — no markdown, no code fences, no extra text before or after the JSON."
+            },
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        "temperature": 0.8,
+        "max_tokens": 2048,
+    }
+    resp = requests.post(GROQ_API_URL, headers=headers, json=payload, timeout=60)
     if resp.status_code != 200:
-        raise RuntimeError(f"Gemini API error {resp.status_code}: {resp.text}")
+        raise RuntimeError(f"Groq API error {resp.status_code}: {resp.text}")
     data = resp.json()
-    return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+    return data["choices"][0]["message"]["content"].strip()
 
 def generate_blog_content(topic, api_key):
-    """Generate full blog post content via Gemini."""
-    prompt = f"""You are a professional digital marketing content writer for "{SITE_NAME}", 
-a digital marketing agency based in India.
+    """Generate full blog post content via Groq."""
+    prompt = f"""Write a detailed, SEO-optimized blog post for "Minds Of Brands", a digital marketing agency in India.
 
-Write a detailed, SEO-optimized blog post about: "{topic}"
+Topic: "{topic}"
 
 Requirements:
-- Length: 700-900 words
+- Length: 700-900 words total
 - Tone: Professional but conversational, helpful
 - Structure: Introduction, 3-4 main sections with H2 headings, Conclusion
-- Include: Practical tips, real examples, actionable advice
+- Include practical tips, real examples, actionable advice
 - Target audience: Indian small business owners, entrepreneurs, startups
-- SEO: Naturally use the main keyword "{topic}" 4-6 times
+- Naturally use the keyword "{topic}" 4-6 times
 
-Return ONLY a JSON object with these exact keys (no markdown, no code blocks):
+Return ONLY a valid JSON object with exactly these keys:
 {{
   "title": "Compelling SEO title (55-60 chars)",
   "meta_description": "Meta description 150-160 chars with keyword",
@@ -140,12 +146,13 @@ Return ONLY a JSON object with these exact keys (no markdown, no code blocks):
   "tags": ["tag1", "tag2", "tag3"]
 }}"""
 
-    print("Calling Gemini API...")
-    raw = call_gemini(prompt, api_key)
+    print("Calling Groq API...")
+    raw = call_groq(prompt, api_key)
 
     # Strip any accidental markdown code fences
-    raw = re.sub(r'^```(?:json)?\s*', '', raw, flags=re.MULTILINE)
-    raw = re.sub(r'\s*```$', '', raw, flags=re.MULTILINE)
+    raw = re.sub(r'^```(?:json)?\s*', '', raw.strip(), flags=re.MULTILINE)
+    raw = re.sub(r'\s*```$', '', raw.strip(), flags=re.MULTILINE)
+    raw = raw.strip()
 
     try:
         data = json.loads(raw)
@@ -153,18 +160,27 @@ Return ONLY a JSON object with these exact keys (no markdown, no code blocks):
         return data
     except json.JSONDecodeError as e:
         print(f"JSON parse error: {e}\nRaw output:\n{raw[:500]}")
-        # Fallback: return basic structure
+        # Fallback structure
         return {
             "title": f"Ultimate Guide to {topic}",
-            "meta_description": f"Learn everything about {topic} with actionable strategies for business growth.",
-            "intro": f"{topic} is transforming the way businesses grow online. In this guide, we explore the most effective strategies you can apply today.",
+            "meta_description": f"Learn everything about {topic} with actionable strategies for business growth in India.",
+            "intro": f"{topic} is transforming the way businesses grow online. In this guide, we explore the most effective strategies you can apply today to see real results.",
             "sections": [
-                {"heading": f"Why {topic} Matters", "content": f"{topic} helps businesses attract the right audience, improve visibility, and increase conversions. Companies that invest in {topic} see measurable results within months."},
-                {"heading": "Key Strategies to Get Started", "content": "Start by defining your target audience clearly. Use data-driven tools to track performance. Consistency is the single most important factor in long-term success."},
-                {"heading": "Common Mistakes to Avoid", "content": "Many businesses jump in without a clear strategy. Avoid spreading yourself too thin across every platform. Focus on 2-3 channels where your audience actually spends time."},
+                {
+                    "heading": f"Why {topic} Matters for Your Business",
+                    "content": f"{topic} helps businesses attract the right audience, improve brand visibility, and increase conversions. Companies that invest in {topic} consistently see measurable results within months.\n\nWhether you're a startup or an established business, understanding {topic} gives you a competitive edge in today's digital-first marketplace."
+                },
+                {
+                    "heading": "Key Strategies to Get Started",
+                    "content": "Start by defining your target audience clearly before launching any campaign. Use data-driven tools to track performance at every stage.\n\nConsistency is the single most important factor in long-term digital success. Set clear KPIs and review them monthly."
+                },
+                {
+                    "heading": "Common Mistakes to Avoid",
+                    "content": "Many businesses jump in without a clear strategy and end up wasting budget. Avoid spreading yourself too thin across every platform.\n\nFocus on 2-3 channels where your audience actually spends time, and master those before expanding."
+                },
             ],
-            "conclusion": f"Ready to implement {topic} for your business? Minds Of Brands helps you create strategies that deliver real results. Contact us today.",
-            "tags": [topic, "digital marketing", "business growth"]
+            "conclusion": f"Ready to implement {topic} for your business? Minds Of Brands helps Indian businesses create strategies that deliver real, measurable results. Contact us today to get started.",
+            "tags": [topic, "digital marketing", "business growth", "India"]
         }
 
 # ─── HTML GENERATION ──────────────────────────────────────────────────────────
@@ -174,7 +190,6 @@ def build_sections_html(sections):
     for sec in sections:
         heading = sec.get("heading", "")
         content = sec.get("content", "")
-        # Split content into paragraphs
         paragraphs = [p.strip() for p in content.split("\n") if p.strip()]
         para_html = "\n      ".join(f"<p>{p}</p>" for p in paragraphs)
         html += f"""
@@ -183,16 +198,16 @@ def build_sections_html(sections):
     return html
 
 def build_post_html(topic, slug, content):
-    title          = content.get("title", f"Ultimate Guide to {topic}")
-    meta_desc      = content.get("meta_description", "")
-    intro          = content.get("intro", "")
-    sections_html  = build_sections_html(content.get("sections", []))
-    conclusion     = content.get("conclusion", "")
-    tags           = content.get("tags", [])
-    date_display   = format_date()
-    date_iso       = iso_date()
-    tags_html      = " ".join(f'<span class="tag">{t}</span>' for t in tags)
-    canonical_url  = f"{SITE_URL}/blog/{slug}/"
+    title         = content.get("title", f"Ultimate Guide to {topic}")
+    meta_desc     = content.get("meta_description", "")
+    intro         = content.get("intro", "")
+    sections_html = build_sections_html(content.get("sections", []))
+    conclusion    = content.get("conclusion", "")
+    tags          = content.get("tags", [])
+    date_display  = format_date()
+    date_iso      = iso_date()
+    tags_html     = " ".join(f'<span class="tag">{t}</span>' for t in tags)
+    canonical_url = f"{SITE_URL}/blog/{slug}/"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -346,7 +361,6 @@ def regenerate_blog_index():
         if not folder.is_dir() or not post_file.exists():
             continue
 
-        # Read title + description from the post file
         html = post_file.read_text(encoding="utf-8")
 
         title_match = re.search(r'<title>(.*?)\s*\|', html)
@@ -469,36 +483,28 @@ def regenerate_sitemap():
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
 
 def main():
-    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+    api_key = os.environ.get("GROQ_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
-            "GEMINI_API_KEY secret is not set!\n"
+            "GROQ_API_KEY secret is not set!\n"
             "Go to: GitHub repo → Settings → Secrets → Actions → New secret\n"
-            "Name: GEMINI_API_KEY\n"
-            "Get free key: https://aistudio.google.com/apikey"
+            "Name: GROQ_API_KEY\n"
+            "Get free key at: https://console.groq.com"
         )
 
-    # 1. Pick topic
-    topic = pick_topic()
-
-    # 2. Generate content via Gemini
+    topic   = pick_topic()
     content = generate_blog_content(topic, api_key)
 
-    # 3. Build slug and folder
-    slug = slugify(content.get("title", topic))
+    slug   = slugify(content.get("title", topic))
     folder = Path(BLOG_DIR) / slug
     folder.mkdir(parents=True, exist_ok=True)
 
-    # 4. Write post HTML
     post_html = build_post_html(topic, slug, content)
     post_file = folder / "index.html"
     post_file.write_text(post_html, encoding="utf-8")
     print(f"Created: {post_file}")
 
-    # 5. Rebuild blog index
     regenerate_blog_index()
-
-    # 6. Rebuild sitemap
     regenerate_sitemap()
 
     print("Done! Blog post published successfully.")
