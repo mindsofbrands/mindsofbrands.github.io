@@ -68,3 +68,20 @@ jobs:
           git add .
           git commit -m "New blog generated" || echo "No changes"
           git push
+          # Create / Update Blog Listing Page
+
+          echo "<!DOCTYPE html>" > blog/index.html
+          echo "<html><head><title>Blogs</title></head><body style='font-family:Arial;padding:40px'>" >> blog/index.html
+          echo "<h1>Our Blogs</h1>" >> blog/index.html
+          
+          for dir in blog/*/; do
+          name=$(basename "$dir")
+          title=$(echo "$name" | tr '-' ' ')
+        
+          echo "<div style='margin-bottom:20px'>" >> blog/index.html
+          echo "<h2>$title</h2>" >> blog/index.html
+          echo "<a href='/$dir'>Read More</a>" >> blog/index.html
+          echo "</div>" >> blog/index.html
+          done
+
+          echo "</body></html>" >> blog/index.html
