@@ -1,4 +1,5 @@
 name: Auto Blog Generator
+
 on:
   workflow_dispatch:
     inputs:
@@ -7,7 +8,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '0 9 * * 1'   # Every Monday 9am UTC
+    - cron: '0 */4 * * *'   # Every 4 hours — 12am, 4am, 8am, 12pm, 4pm, 8pm UTC
 
 permissions:
   contents: write
@@ -39,5 +40,5 @@ jobs:
           git config user.name "Minds Of Brands Bot"
           git config user.email "bot@mindsofbrands.com"
           git add -A
-          git diff --cached --quiet || git commit -m "Auto blog: $(date +'%Y-%m-%d')"
+          git diff --cached --quiet || git commit -m "Auto blog: $(date +'%Y-%m-%d %H:%M')"
           git push
