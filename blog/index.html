@@ -3,147 +3,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog | Minds Of Brands</title>
-  <meta name="description" content="Digital marketing insights, SEO tips, and branding strategies from Minds Of Brands.">
+  <title>Our Blogs | Minds Of Brands</title>
+  <meta name="description" content="Digital marketing insights, SEO tips, branding strategies and more from Minds Of Brands.">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #222; }
+
     header {
-      background: #111; color: #fff; padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between;
+      background: #000;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.3);
     }
-    header a { color: #fff; text-decoration: none; font-size: 20px; font-weight: 700; }
-    nav a { color: #ccc; text-decoration: none; font-size: 14px; margin-left: 20px; }
-    nav a:hover { color: #fff; }
-    .hero { background: #111; color: #fff; padding: 50px 24px; text-align: center; }
-    .hero h1 { font-size: 36px; font-weight: 700; }
-    .hero p { color: #aaa; margin-top: 10px; }
-    .container { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo { color: #fff; text-decoration: none; font-size: 22px; font-weight: 700; }
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a { color: #ccc; text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 4px; transition: color .2s, background .2s; }
+    nav a:hover, nav a.active { color: #fff; background: rgba(255,255,255,.08); }
+    .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 4px 8px; }
+
+    .hero { background: #000; color: #fff; padding: 52px 24px; text-align: center; }
+    .hero h1 { font-size: 38px; font-weight: 700; }
+    .hero p { color: #999; margin-top: 10px; font-size: 15px; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 52px 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+
     .post-card {
-      border: 1px solid #eee; border-radius: 10px;
-      padding: 24px 28px; margin-bottom: 24px;
-      transition: box-shadow .2s;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 24px;
+      transition: box-shadow .2s, transform .2s;
     }
-    .post-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
-    .post-card h2 { font-size: 20px; margin-bottom: 8px; }
+    .post-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.09); transform: translateY(-2px); }
+    .post-card h2 { font-size: 18px; margin-bottom: 8px; line-height: 1.3; }
     .post-card h2 a { color: #111; text-decoration: none; }
-    .post-card h2 a:hover { color: #e63; }
-    .post-date { font-size: 13px; color: #999; margin-bottom: 8px; }
-    .post-card p { font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 14px; }
-    .read-more { color: #e63; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .post-card h2 a:hover { color: #e33; }
+    .post-date { font-size: 12px; color: #999; margin-bottom: 10px; }
+    .post-card p { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 16px; }
+    .read-more { color: #e33; text-decoration: none; font-size: 14px; font-weight: 600; }
     .read-more:hover { text-decoration: underline; }
-    footer {
-      background: #111; color: #888; text-align: center;
-      padding: 20px; font-size: 13px; margin-top: 40px;
+
+    footer { background: #111; color: #aaa; text-align: center; padding: 24px 20px; font-size: 13px; margin-top: 40px; line-height: 2; }
+    .footer-links { margin-top: 6px; }
+    .footer-links a { color: #aaa; text-decoration: none; margin: 0 4px; }
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 700px) {
+      .nav-toggle { display: block; }
+      nav { display: none; flex-direction: column; align-items: flex-start; gap: 0; background: #000; position: absolute; top: 60px; left: 0; right: 0; padding: 12px 0; border-top: 1px solid #222; }
+      nav.open { display: flex; }
+      nav a { width: 100%; padding: 10px 24px; border-radius: 0; }
+      .hero h1 { font-size: 28px; }
     }
-    footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
-  </style>
+</style>
 </head>
 <body>
+
 <header>
-  <a href="/">Minds Of Brands</a>
-  <nav>
-    <a href="/">Home</a><a href="/services/">Services</a>
-    <a href="/blog/">Blogs</a><a href="/contactus/">Contact</a>
-  </nav>
+  <div class="header-inner">
+    <a class="logo" href="/">Minds Of Brands</a>
+    <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/product/">Product</a>
+      <a href="/about/">About Us</a>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/blog/" class="active">Blogs</a>
+      <a href="/contactus/">Contact</a>
+    </nav>
+  </div>
 </header>
+
 <div class="hero">
   <h1>Our Blogs</h1>
   <p>Digital marketing insights to grow your business</p>
 </div>
+
 <div class="container">
-  
-    <div class="post-card">
-      <h2><a href="/blog/unlock-web-30-future-of-internet-explained/">Unlock Web 3.0: Future of Internet Explained</a></h2>
-      <p class='post-date'>April 06, 2026</p>
-      <p>Discover Web 3.0 Explained Simply and learn how it can revolutionize your online presence with Minds Of Brands, a leading digital marketing agency in India, guiding you through the process</p>
-      <a href="/blog/unlock-web-30-future-of-internet-explained/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/unlock-conversions-with-aida-model-explained/">Unlock Conversions with AIDA Model Explained</a></h2>
-      <p class='post-date'>April 06, 2026</p>
-      <p>Discover the AIDA Model Explained and boost your marketing strategy with Minds Of Brands, a leading digital marketing agency in India, learn how to drive sales and conversions</p>
-      <a href="/blog/unlock-conversions-with-aida-model-explained/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/test-blog/">Test Blog</a></h2>
-      
-      <p>Read this post on our blog.</p>
-      <a href="/blog/test-blog/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/next-gen-tools-and-trends-powering-modern-brands-through-digital-marketing-for-enhanced-roi/">Next Gen Tools And Trends Powering Modern Brands Through Digital Marketing For Enhanced Roi</a></h2>
-      
-      <p>Explore advanced digital marketing tools and trends — AI, automation, video, and data-driven campaigns helping modern brands boost ROI.</p>
-      <a href="/blog/next-gen-tools-and-trends-powering-modern-brands-through-digital-marketing-for-enhanced-roi/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/lead-generation-tips-1775448735/">Lead Generation Tips 1775448735</a></h2>
-      
-      <p>Read this post on our blog.</p>
-      <a href="/blog/lead-generation-tips-1775448735/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/instagram-marketing-strategies-1775453864/">Instagram Marketing Strategies 1775453864</a></h2>
-      
-      <p>Read this post on our blog.</p>
-      <a href="/blog/instagram-marketing-strategies-1775453864/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/how-small-businesses-grow-instagram-marketing/">How Small Businesses Grow Instagram Marketing</a></h2>
-      
-      <p>Read this post on our blog.</p>
-      <a href="/blog/how-small-businesses-grow-instagram-marketing/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/enhanced-performance-is-the-key-goal-of-best-digital-marketing/">Enhanced Performance Is The Key Goal Of Best Digital Marketing</a></h2>
-      
-      <p>Enhanced Performance is the Key Goal of Best Digital Marketing - Minds Of Brands Blog</p>
-      <a href="/blog/enhanced-performance-is-the-key-goal-of-best-digital-marketing/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/digital-marketing-trends-2026-1775448442/">Digital Marketing Trends 2026 1775448442</a></h2>
-      
-      <p>Read this post on our blog.</p>
-      <a href="/blog/digital-marketing-trends-2026-1775448442/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/business-growth-strategies-1775453865/">Business Growth Strategies 1775453865</a></h2>
-      
-      <p>Read this post on our blog.</p>
-      <a href="/blog/business-growth-strategies-1775453865/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/boost-online-presence-with-ai-for-social-media-growth/">Boost Online Presence with AI for Social Media Growth</a></h2>
-      <p class='post-date'>April 06, 2026</p>
-      <p>Discover how AI for Social Media Growth can transform your online presence, increase engagement and drive sales. Learn more with Minds Of Brands, a leading digital marketing agency in India.</p>
-      <a href="/blog/boost-online-presence-with-ai-for-social-media-growth/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/boost-content-reach-content-repurposing-hacks/">Boost Content Reach: Content Repurposing Hacks</a></h2>
-      <p class='post-date'>April 06, 2026</p>
-      <p>Discover the power of content repurposing hacks to maximize your content's potential, increase reach and engagement with Minds Of Brands, a leading digital marketing agency in India</p>
-      <a href="/blog/boost-content-reach-content-repurposing-hacks/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/best-deliverables-by-doing-digital-marketing/">Best Deliverables By Doing Digital Marketing</a></h2>
-      
-      <p>Discover the best deliverables businesses can achieve through digital marketing – from ROI to global reach. Minds Of Brands Blog.</p>
-      <a href="/blog/best-deliverables-by-doing-digital-marketing/" class="read-more">Read More →</a>
-    </div>
-    <div class="post-card">
-      <h2><a href="/blog/ai-tools-for-startups-1775453863/">Ai Tools For Startups 1775453863</a></h2>
-      
-      <p>Read this post on our blog.</p>
-      <a href="/blog/ai-tools-for-startups-1775453863/" class="read-more">Read More →</a>
-    </div>
+  <div class="grid">
+    
+      <div class="post-card">
+        <h2><a href="/blog/voice-search-seo-trends-boost-your-online-visibility/">Voice Search SEO Trends: Boost Your Online Visibility</a></h2>
+        <p class="post-date">April 06, 2026</p>
+        <p>Discover the latest Voice Search SEO Trends to optimize your website for voice search and improve your online presence with Minds Of Brands, a leading digital marketing agency in India.</p>
+        <a href="/blog/voice-search-seo-trends-boost-your-online-visibility/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/unlock-web-30-future-of-internet-explained/">Unlock Web 3.0: Future of Internet Explained</a></h2>
+        <p class="post-date">April 06, 2026</p>
+        <p>Discover Web 3.0 Explained Simply and learn how it can revolutionize your online presence with Minds Of Brands, a leading digital marketing agency in India, guiding you through the process</p>
+        <a href="/blog/unlock-web-30-future-of-internet-explained/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/unlock-conversions-with-aida-model-explained/">Unlock Conversions with AIDA Model Explained</a></h2>
+        <p class="post-date">April 06, 2026</p>
+        <p>Discover the AIDA Model Explained and boost your marketing strategy with Minds Of Brands, a leading digital marketing agency in India, learn how to drive sales and conversions</p>
+        <a href="/blog/unlock-conversions-with-aida-model-explained/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/test-blog/">Test Blog</a></h2>
+        
+        <p>Read this post on our blog.</p>
+        <a href="/blog/test-blog/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/next-gen-tools-and-trends-powering-modern-brands-through-digital-marketing-for-enhanced-roi/">Next Gen Tools And Trends Powering Modern Brands Through Digital Marketing For Enhanced Roi</a></h2>
+        
+        <p>Explore advanced digital marketing tools and trends — AI, automation, video, and data-driven campaigns helping modern brands boost ROI.</p>
+        <a href="/blog/next-gen-tools-and-trends-powering-modern-brands-through-digital-marketing-for-enhanced-roi/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/lead-generation-tips-1775448735/">Lead Generation Tips 1775448735</a></h2>
+        
+        <p>Read this post on our blog.</p>
+        <a href="/blog/lead-generation-tips-1775448735/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/instagram-marketing-strategies-1775453864/">Instagram Marketing Strategies 1775453864</a></h2>
+        
+        <p>Read this post on our blog.</p>
+        <a href="/blog/instagram-marketing-strategies-1775453864/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/how-small-businesses-grow-instagram-marketing/">How Small Businesses Grow Instagram Marketing</a></h2>
+        
+        <p>Read this post on our blog.</p>
+        <a href="/blog/how-small-businesses-grow-instagram-marketing/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/enhanced-performance-is-the-key-goal-of-best-digital-marketing/">Enhanced Performance Is The Key Goal Of Best Digital Marketing</a></h2>
+        
+        <p>Enhanced Performance is the Key Goal of Best Digital Marketing - Minds Of Brands Blog</p>
+        <a href="/blog/enhanced-performance-is-the-key-goal-of-best-digital-marketing/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/digital-marketing-trends-2026-1775448442/">Digital Marketing Trends 2026 1775448442</a></h2>
+        
+        <p>Read this post on our blog.</p>
+        <a href="/blog/digital-marketing-trends-2026-1775448442/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/business-growth-strategies-1775453865/">Business Growth Strategies 1775453865</a></h2>
+        
+        <p>Read this post on our blog.</p>
+        <a href="/blog/business-growth-strategies-1775453865/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/boost-online-presence-with-ai-for-social-media-growth/">Boost Online Presence with AI for Social Media Growth</a></h2>
+        <p class="post-date">April 06, 2026</p>
+        <p>Discover how AI for Social Media Growth can transform your online presence, increase engagement and drive sales. Learn more with Minds Of Brands, a leading digital marketing agency in India.</p>
+        <a href="/blog/boost-online-presence-with-ai-for-social-media-growth/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/boost-content-reach-content-repurposing-hacks/">Boost Content Reach: Content Repurposing Hacks</a></h2>
+        <p class="post-date">April 06, 2026</p>
+        <p>Discover the power of content repurposing hacks to maximize your content's potential, increase reach and engagement with Minds Of Brands, a leading digital marketing agency in India</p>
+        <a href="/blog/boost-content-reach-content-repurposing-hacks/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/best-deliverables-by-doing-digital-marketing/">Best Deliverables By Doing Digital Marketing</a></h2>
+        
+        <p>Discover the best deliverables businesses can achieve through digital marketing – from ROI to global reach. Minds Of Brands Blog.</p>
+        <a href="/blog/best-deliverables-by-doing-digital-marketing/" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <h2><a href="/blog/ai-tools-for-startups-1775453863/">Ai Tools For Startups 1775453863</a></h2>
+        
+        <p>Read this post on our blog.</p>
+        <a href="/blog/ai-tools-for-startups-1775453863/" class="read-more">Read More →</a>
+      </div>
+  </div>
 </div>
+
 <footer>
-  <p>© 2026 Minds Of Brands. All rights reserved.</p>
-  <p style="margin-top:8px">
-    <a href="/">Home</a><a href="/services/">Services</a>
-    <a href="/blog/">Blogs</a><a href="/contactus/">Contact</a>
+  <p>© 2025 Minds Of Brands. All rights reserved.</p>
+  <p class="footer-links">
+    <a href="/">Home</a> |
+    <a href="/services/">Services</a> |
+    <a href="/product/">Product</a> |
+    <a href="/about/">About Us</a> |
+    <a href="/portfolio/">Portfolio</a> |
+    <a href="/blog/">Blogs</a> |
+    <a href="/contactus/">Contact</a>
   </p>
 </footer>
+
 </body>
 </html>
