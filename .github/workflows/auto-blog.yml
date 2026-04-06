@@ -16,75 +16,56 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Generate Blogs + Listing
+      - name: Generate Blog
         run: |
           topics=("AI Tools for Startups" "Instagram Marketing Strategies" "Business Growth Strategies" "Digital Marketing Trends 2026" "Lead Generation Tips")
-
-          # CREATE BLOGS
-          for topic in "${topics[@]:0:3}"
-          do
-            title="Ultimate Guide to $topic"
-            slug=$(echo "$topic" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
-            folder="blog/$slug-$(date +%s)"
-
-            mkdir -p "$folder"
-
-            echo "<!DOCTYPE html>" > "$folder/index.html"
-            echo "<html><head><title>$title</title>" >> "$folder/index.html"
-            echo "<meta name='description' content='Learn $topic with proven strategies to grow your business online.'>" >> "$folder/index.html"
-            echo "</head><body style='font-family:Arial;max-width:800px;margin:auto;padding:40px;'>" >> "$folder/index.html"
-
-            echo "<h1>$title</h1>" >> "$folder/index.html"
-
-            echo "<p>$topic is one of the most important trends in modern business. Companies are using it to grow faster and smarter.</p>" >> "$folder/index.html"
-
-            echo "<h2>Why $topic Matters</h2>" >> "$folder/index.html"
-            echo "<p>$topic helps businesses improve visibility, attract customers, and increase conversions.</p>" >> "$folder/index.html"
-
-            echo "<h2>Top Strategies</h2>" >> "$folder/index.html"
-            echo "<ul>" >> "$folder/index.html"
-            echo "<li>Focus on customer needs</li>" >> "$folder/index.html"
-            echo "<li>Use automation tools</li>" >> "$folder/index.html"
-            echo "<li>Track performance regularly</li>" >> "$folder/index.html"
-            echo "</ul>" >> "$folder/index.html"
-
-            echo "<h2>Conclusion</h2>" >> "$folder/index.html"
-            echo "<p>Start applying these strategies today and build a strong digital presence.</p>" >> "$folder/index.html"
-
-            echo "<br><a href='/blog/'>← Back to Blogs</a>" >> "$folder/index.html"
-            echo "</body></html>" >> "$folder/index.html"
-
-            sleep 1
-          done
-
-          # CREATE BLOG LISTING PAGE
-          echo "<!DOCTYPE html>" > blog/index.html
-          echo "<html><head><title>Blogs</title></head>" >> blog/index.html
-          echo "<body style='font-family:Arial;padding:40px'>" >> blog/index.html
-
-          echo "<h1>Our Blogs</h1>" >> blog/index.html
-
-          for dir in blog/*/; do
-            name=$(basename "$dir")
-
-            # Clean title (remove timestamp)
-            clean_title=$(echo "$name" | sed 's/-[0-9]*$//' | tr '-' ' ')
-
-            desc="Learn about $clean_title with actionable strategies and real-world insights to grow your business."
-
-            echo "<div style='margin-bottom:30px'>" >> blog/index.html
-            echo "<h2>$clean_title</h2>" >> blog/index.html
-            echo "<p>$desc</p>" >> blog/index.html
-            echo "<a href='/$dir' style='color:blue'>Read More</a>" >> blog/index.html
-            echo "</div>" >> blog/index.html
-          done
-
-          echo "</body></html>" >> blog/index.html
-
-      - name: Commit & Push
-        run: |
-          git config --global user.name "auto-bot"
-          git config --global user.email "auto@bot.com"
-          git add .
-          git commit -m "Auto blogs + listing updated" || echo "No changes"
-          git push
+      
+          topic=$(printf "%s\n" "${topics[@]}" | shuf -n 1)
+      
+          title="Ultimate Guide to $topic"
+          slug=$(echo "$topic" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+          folder="blog/$slug-$(date +%s)"
+      
+          mkdir -p "$folder"
+      
+          # RANDOM CONTENT VARIATION
+          intros=(
+            "$topic is changing how businesses grow in today's digital world."
+            "In 2026, $topic is becoming essential for business success."
+            "If you want growth, understanding $topic is no longer optional."
+          )
+      
+          strategies=(
+            "Focus on customer behavior and data insights."
+            "Use automation tools to scale faster."
+            "Create consistent and engaging content."
+          )
+      
+          intro=$(printf "%s\n" "${intros[@]}" | shuf -n 1)
+          strat1=$(printf "%s\n" "${strategies[@]}" | shuf -n 1)
+          strat2=$(printf "%s\n" "${strategies[@]}" | shuf -n 1)
+      
+          echo "<!DOCTYPE html>" > "$folder/index.html"
+          echo "<html><head><title>$title</title>" >> "$folder/index.html"
+          echo "<meta name='description' content='Learn $topic with actionable strategies to grow your business.'>" >> "$folder/index.html"
+          echo "</head><body style='font-family:Arial;max-width:800px;margin:auto;padding:40px;'>" >> "$folder/index.html"
+      
+          echo "<h1>$title</h1>" >> "$folder/index.html"
+      
+          echo "<p>$intro</p>" >> "$folder/index.html"
+      
+          echo "<h2>Why $topic Matters</h2>" >> "$folder/index.html"
+          echo "<p>$topic helps businesses increase visibility, improve engagement, and drive conversions.</p>" >> "$folder/index.html"
+      
+          echo "<h2>Top Strategies</h2>" >> "$folder/index.html"
+          echo "<ul>" >> "$folder/index.html"
+          echo "<li>$strat1</li>" >> "$folder/index.html"
+          echo "<li>$strat2</li>" >> "$folder/index.html"
+          echo "<li>Track performance and optimize regularly.</li>" >> "$folder/index.html"
+          echo "</ul>" >> "$folder/index.html"
+      
+          echo "<h2>Conclusion</h2>" >> "$folder/index.html"
+          echo "<p>Start applying these ideas today and stay ahead in the digital market.</p>" >> "$folder/index.html"
+      
+          echo "<br><a href='/blog/'>← Back to Blogs</a>" >> "$folder/index.html"
+          echo "</body></html>" >> "$folder/index.html"
