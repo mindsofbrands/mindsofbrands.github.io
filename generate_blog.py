@@ -25,7 +25,7 @@ TOPICS_FILE    = "topics.txt"
 
 GEMINI_API_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-1.5-flash:generateContent"
+    "gemini-2.0-flash:generateContent"
 )
 
 # ─── TOPIC SELECTION ──────────────────────────────────────────────────────────
@@ -95,7 +95,7 @@ def iso_date():
 # ─── AI CONTENT GENERATION ────────────────────────────────────────────────────
 
 def call_gemini(prompt, api_key):
-    """Call Gemini 1.5 Flash (free tier) and return text."""
+    """Call Gemini 2.0 Flash (free tier) and return text."""
     url = f"{GEMINI_API_URL}?key={api_key}"
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
